@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Robot | Cyclodials FTC</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ── Navigation ─────────────────────────────────────────── -->
+  <nav>
+    <a href="index.html" class="nav-logo">CYCLODIALS</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="robot.html" class="active">Robot</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── Robot Reveal ───────────────────────────────────────── -->
+  <section>
+    <p class="section-label">Season <!-- TODO: e.g. 2024–2025 INTO THE DEEP --></p>
+    <!-- TODO: Replace robot name with your actual robot name -->
+    <h2>Meet <span class="accent">UNIT-?</span></h2>
+    <div class="divider"></div>
+
+    <div class="robot-reveal">
+
+      <!-- Robot photo -->
+      <div class="robot-image-wrap">
+        <!-- TODO: Replace this placeholder with a real robot photo -->
+        <!-- <img src="images/robot.jpg" alt="Cyclodials robot" style="width:100%;height:100%;object-fit:cover;" /> -->
+        <div class="robot-placeholder-icon">&#129302;</div>
+        <div class="robot-placeholder-text">// ROBOT PHOTO — TODO //</div>
+      </div>
+
+      <!-- Specs -->
+      <div>
+        <!-- TODO: Replace all spec values with real measurements and components -->
+        <p style="color:var(--text-muted); margin-bottom:1.5rem; font-size:0.85rem;">
+          <!-- TODO: Write a short robot description paragraph -->
+          A compact, high-torque differential-swerve platform engineered for speed, precision,
+          and adaptability. Every subsystem was designed from scratch and iterated through
+          <!-- TODO: insert number --> competition cycles.
+        </p>
+
+        <table class="spec-table">
+          <tbody>
+            <tr>
+              <td>Drivetrain</td>
+              <!-- TODO --><td>Mecanum / Swerve / Tank — TODO</td>
+            </tr>
+            <tr>
+              <td>Drive Motors</td>
+              <!-- TODO --><td>?× GoBILDA / REV — TODO</td>
+            </tr>
+            <tr>
+              <td>Weight</td>
+              <!-- TODO --><td>?? lbs / ?? kg — TODO</td>
+            </tr>
+            <tr>
+              <td>Footprint</td>
+              <!-- TODO --><td>??" × ??" — TODO</td>
+            </tr>
+            <tr>
+              <td>Height</td>
+              <!-- TODO --><td>??" retracted / ??" extended — TODO</td>
+            </tr>
+            <tr>
+              <td>Intake</td>
+              <!-- TODO --><td>Describe intake mechanism — TODO</td>
+            </tr>
+            <tr>
+              <td>Scoring</td>
+              <!-- TODO --><td>Describe scoring mechanism — TODO</td>
+            </tr>
+            <tr>
+              <td>Sensors</td>
+              <!-- TODO --><td>IMU, Odometry, Vision — TODO</td>
+            </tr>
+            <tr>
+              <td>Vision</td>
+              <!-- TODO --><td>Limelight / Webcam + TensorFlow — TODO</td>
+            </tr>
+            <tr>
+              <td>Control Hub</td>
+              <!-- TODO --><td>REV Control Hub 1.1 — TODO</td>
+            </tr>
+            <tr>
+              <td>Auto Library</td>
+              <!-- TODO --><td>Road Runner / Pedro Pathing — TODO</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Build Log / Timeline ───────────────────────────────── -->
+  <section>
+    <p class="section-label">Development History</p>
+    <h2>Build <span class="accent">Log</span></h2>
+    <div class="divider"></div>
+
+    <div class="timeline">
+
+      <!-- Entry 1 -->
+      <div class="timeline-entry">
+        <!-- TODO: Replace with real date (e.g. "September 2024") -->
+        <div class="timeline-date">Month YYYY &mdash; TODO</div>
+        <!-- TODO: Replace title and body with real log entry -->
+        <h3>Kickoff &amp; Game Analysis</h3>
+        <p>
+          <!-- TODO: Write what happened at kickoff — game manual breakdown, initial strategy sessions, field element orders, etc. -->
+          The season officially began with the game reveal. The team broke into sub-groups
+          to study the game manual, score possibilities, and draft initial robot concepts.
+          Three drivetrain configurations were evaluated before a decision was made.
+        </p>
+        <span class="timeline-tag">Strategy</span>
+      </div>
+
+      <!-- Entry 2 -->
+      <div class="timeline-entry">
+        <!-- TODO: Replace with real date -->
+        <div class="timeline-date">Month YYYY &mdash; TODO</div>
+        <!-- TODO: Replace with real log entry -->
+        <h3>Prototype &amp; Iteration</h3>
+        <p>
+          <!-- TODO: Describe your actual prototyping phase — what mechanisms were tested, what failed, what succeeded -->
+          Cardboard and plywood prototypes were built for the intake and scoring systems.
+          The linear slide extension was iterated three times to hit the target cycle time.
+          CAD modelling began in OnShape once dimensions were locked in.
+        </p>
+        <span class="timeline-tag">Mechanical</span>
+        <span class="timeline-tag" style="margin-left:0.5rem;">CAD</span>
+      </div>
+
+      <!-- Entry 3 -->
+      <div class="timeline-entry">
+        <!-- TODO: Replace with real date -->
+        <div class="timeline-date">Month YYYY &mdash; TODO</div>
+        <!-- TODO: Replace with real log entry -->
+        <h3>Robot Build &amp; Wiring</h3>
+        <p>
+          <!-- TODO: Describe your build phase — parts ordered/cut, assembly milestones, wiring, first drive -->
+          Full metal assembly completed over two build weekends. The electrical harness
+          was planned in advance and colour-coded for rapid field repairs. First successful
+          drive under driver control achieved on <!-- TODO: date -->.
+        </p>
+        <span class="timeline-tag">Build</span>
+        <span class="timeline-tag" style="margin-left:0.5rem;">Electrical</span>
+      </div>
+
+      <!-- Entry 4 -->
+      <div class="timeline-entry">
+        <!-- TODO: Replace with real date -->
+        <div class="timeline-date">Month YYYY &mdash; TODO</div>
+        <!-- TODO: Replace with real log entry -->
+        <h3>Software &amp; Autonomous Tuning</h3>
+        <p>
+          <!-- TODO: Describe your software milestones — auto paths, tuning, driver practice -->
+          Road Runner spline paths were tuned for two autonomous routes: a high-scoring
+          five-sample path and a reliable two-sample fallback. PID coefficients for each
+          motor group were logged and version-controlled in the team GitHub repository.
+        </p>
+        <span class="timeline-tag">Software</span>
+        <span class="timeline-tag" style="margin-left:0.5rem;">Autonomous</span>
+      </div>
+
+      <!-- TODO: Add more entries as the season progresses -->
+      <!--
+      <div class="timeline-entry">
+        <div class="timeline-date">Month YYYY</div>
+        <h3>Entry Title</h3>
+        <p>Entry description.</p>
+        <span class="timeline-tag">Tag</span>
+      </div>
+      -->
+
+    </div>
+  </section>
+
+  <!-- ── Competition Results (placeholder) ──────────────────── -->
+  <section style="padding-top: 1rem;">
+    <p class="section-label">Competition Results</p>
+    <h2>On the <span class="accent">Field</span></h2>
+    <div class="divider"></div>
+
+    <!-- TODO: Fill in real competition results, or remove this section until results are available -->
+    <p style="color:var(--text-muted); font-size:0.85rem; max-width:600px;">
+      Results will be updated as the season progresses.
+      <!-- TODO: Add a table of events, rankings, and awards here -->
+    </p>
+
+    <div style="margin-top:1.5rem; display:flex; gap:1rem; flex-wrap:wrap;">
+      <div class="value-card" style="flex:1; min-width:200px;">
+        <h4>// Qualifier</h4>
+        <!-- TODO: Replace with real event name, date, and ranking -->
+        <p>Event Name — TODO &bull; Date — TODO &bull; Rank: ??/?? — TODO</p>
+      </div>
+      <div class="value-card" style="flex:1; min-width:200px;">
+        <h4>// League Meet</h4>
+        <!-- TODO: Replace with real event details -->
+        <p>Event Name — TODO &bull; Date — TODO &bull; Rank: ??/?? — TODO</p>
+      </div>
+      <div class="value-card" style="flex:1; min-width:200px;">
+        <h4>// State Championship</h4>
+        <!-- TODO: Update once/if qualified -->
+        <p>TBD &mdash; Qualification pending — TODO</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ─────────────────────────────────────────────── -->
+  <footer>
+    <!-- TODO: Update year and team number -->
+    <p><span>CYCLODIALS</span> &mdash; FTC Team <!-- TODO: #XXXXX --> &mdash; &copy; 2025</p>
+    <p style="margin-top:0.4rem;">Built with &#9889; and a lot of coffee.</p>
+  </footer>
+
+  <script src="nav.js"></script>
+</body>
+</html>
