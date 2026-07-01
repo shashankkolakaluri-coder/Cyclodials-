@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery | Cyclodials FTC</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+    .video-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      transition: border-color 0.25s, box-shadow 0.25s;
+    }
+    .video-card:hover {
+      border-color: var(--accent-dim);
+      box-shadow: var(--glow-sm);
+    }
+    .video-frame {
+      aspect-ratio: 16/9;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      background: linear-gradient(135deg, #00f0ff08 0%, transparent 60%);
+      border-bottom: 1px solid var(--border);
+    }
+    .video-frame .play-icon {
+      width: 52px;
+      height: 52px;
+      border: 1px solid var(--accent-dim);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      font-size: 1.1rem;
+      opacity: 0.6;
+    }
+    .video-frame .placeholder-label {
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+    .video-info { padding: 1rem 1.25rem; }
+    .video-title {
+      font-family: var(--font-head);
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      color: #e8eaf6;
+      margin-bottom: 0.3rem;
+    }
+    .video-desc {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Navigation ─────────────────────────────────────────── -->
+  <nav>
+    <a href="index.html" class="nav-logo">CYCLODIALS</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="robot.html">Robot</a></li>
+      <li><a href="gallery.html" class="active">Gallery</a></li>
+      <li><a href="outreach.html">Outreach</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── Page Header ────────────────────────────────────────── -->
+  <section style="padding-bottom: 1rem;">
+    <p class="section-label">Watch Us Work</p>
+    <h2>Robot <span class="accent">Gallery</span></h2>
+    <div class="divider"></div>
+    <p style="color: var(--text-muted); max-width: 560px;">
+      Build sessions, test runs, and match footage from the season. Videos
+      coming soon as the robot comes together.
+    </p>
+  </section>
+
+  <!-- ── Video Grid ─────────────────────────────────────────── -->
+  <section style="padding-top: 1rem; padding-bottom: 5rem;">
+    <div class="gallery-grid">
+
+      <!-- To add a real video, replace a .video-frame div with:
+           <iframe src="https://www.youtube.com/embed/VIDEO_ID" style="aspect-ratio:16/9;width:100%;border:0;" allowfullscreen></iframe> -->
+
+      <div class="video-card">
+        <div class="video-frame">
+          <div class="play-icon">&#9654;</div>
+          <div class="placeholder-label">Video Coming Soon</div>
+        </div>
+        <div class="video-info">
+          <div class="video-title">DRIVETRAIN FIRST TEST</div>
+          <p class="video-desc">First movement test of the chassis.</p>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <div class="video-frame">
+          <div class="play-icon">&#9654;</div>
+          <div class="placeholder-label">Video Coming Soon</div>
+        </div>
+        <div class="video-info">
+          <div class="video-title">AUTONOMOUS TESTING</div>
+          <p class="video-desc">Early autonomous pathing runs.</p>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <div class="video-frame">
+          <div class="play-icon">&#9654;</div>
+          <div class="placeholder-label">Video Coming Soon</div>
+        </div>
+        <div class="video-info">
+          <div class="video-title">BUILD SESSION TIMELAPSE</div>
+          <p class="video-desc">The team assembling the robot.</p>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <div class="video-frame">
+          <div class="play-icon">&#9654;</div>
+          <div class="placeholder-label">Video Coming Soon</div>
+        </div>
+        <div class="video-info">
+          <div class="video-title">ROBOT REVEAL</div>
+          <p class="video-desc">Full robot reveal for the season.</p>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <div class="video-frame">
+          <div class="play-icon">&#9654;</div>
+          <div class="placeholder-label">Video Coming Soon</div>
+        </div>
+        <div class="video-info">
+          <div class="video-title">MATCH FOOTAGE</div>
+          <p class="video-desc">Competition matches from qualifiers.</p>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <div class="video-frame">
+          <div class="play-icon">&#9654;</div>
+          <div class="placeholder-label">Video Coming Soon</div>
+        </div>
+        <div class="video-info">
+          <div class="video-title">BEHIND THE SCENES</div>
+          <p class="video-desc">Daily sessions and team moments.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Footer ─────────────────────────────────────────────── -->
+  <footer>
+    <p><span>CYCLODIALS</span> &mdash; FTC Team #35788 &mdash; &copy; 2025</p>
+    <div style="margin-top:1rem;display:flex;align-items:center;gap:1.5rem;justify-content:center;flex-wrap:wrap;">
+      <a href="https://www.instagram.com/cycloidalsftc/" class="btn" style="font-size:0.68rem;padding:0.5rem 1.25rem;">Instagram</a>
+      <p style="color:var(--text-muted);font-size:0.75rem;letter-spacing:0.05em;margin:0;">Daily build sessions, robot progress, and behind-the-scenes from the season.</p>
+    </div>
+  </footer>
+
+  <script src="nav.js"></script>
+</body>
+</html>
