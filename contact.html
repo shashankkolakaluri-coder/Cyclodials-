@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Cyclodials FTC</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .contact-form { max-width: 640px; display: flex; flex-direction: column; gap: 1.25rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+    .form-group label {
+      font-family: var(--font-head);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      padding: 0.75rem 1rem;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--accent);
+      box-shadow: var(--glow-sm);
+    }
+    .form-group textarea { min-height: 160px; resize: vertical; }
+    @media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <!-- ── Navigation ─────────────────────────────────────────── -->
+  <nav>
+    <a href="index.html" class="nav-logo">CYCLODIALS</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="robot.html">Robot</a></li>
+      <li><a href="outreach.html">Outreach</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── Page Header ────────────────────────────────────────── -->
+  <section style="padding-bottom: 1rem;">
+    <p class="section-label">Get In Touch</p>
+    <h2>Contact <span class="accent">Us</span></h2>
+    <div class="divider"></div>
+    <p style="color: var(--text-muted); max-width: 560px;">
+      Want us at your school, library, or event? Interested in sponsoring the
+      team? Fill out the form below and we'll get back to you.
+    </p>
+  </section>
+
+  <!-- ── Contact Form ───────────────────────────────────────── -->
+  <section style="padding-top: 1rem; padding-bottom: 5rem;">
+    <form class="contact-form" action="https://formsubmit.co/cyclodials@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="New message from Cyclodials website" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_next" value="https://YOUR-ACTUAL-URL/contact.html" />
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Full Name *</label>
+          <input type="text" id="name" name="name" placeholder="Your full name" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email *</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="interest">I'm interested in...</label>
+        <select id="interest" name="interest">
+          <option value="" disabled selected>Select an option</option>
+          <option value="Robot Demo">Robot Demo</option>
+          <option value="Workshop">Workshop</option>
+          <option value="Pit Tour">Pit Tour (FLL Teams)</option>
+          <option value="Sponsorship">Sponsorship</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="subject">Subject *</label>
+        <input type="text" id="subject" name="subject" placeholder="Brief description of your inquiry" required />
+      </div>
+
+      <div class="form-group">
+        <label for="message">Message *</label>
+        <textarea id="message" name="message" placeholder="Tell us more..." required></textarea>
+      </div>
+
+      <button type="submit" class="btn" style="align-self: flex-start;">Send Message</button>
+    </form>
+  </section>
+
+  <!-- ── Footer ─────────────────────────────────────────────── -->
+  <footer>
+    <p><span>CYCLODIALS</span> &mdash; FTC Team #35788 &mdash; &copy; 2025</p>
+    <div style="margin-top:1rem;display:flex;align-items:center;gap:1.5rem;justify-content:center;flex-wrap:wrap;">
+      <a href="https://www.instagram.com/cycloidalsftc/" class="btn" style="font-size:0.68rem;padding:0.5rem 1.25rem;">Instagram</a>
+      <p style="color:var(--text-muted);font-size:0.75rem;letter-spacing:0.05em;margin:0;">Daily build sessions, robot progress, and behind-the-scenes from the season.</p>
+    </div>
+  </footer>
+
+  <script src="nav.js"></script>
+</body>
+</html>
