@@ -206,8 +206,8 @@ h2 {
 .hero-title {
   font-size: clamp(3rem, 10vw, 7rem);
   font-weight: 900;
-  color: #fff;
-  text-shadow: 0 0 20px #00f0ff44, 0 0 60px #00f0ff22;
+  color: var(--accent);
+  text-shadow: var(--glow), 0 0 60px #00f0ff55;
   letter-spacing: 0.04em;
   line-height: 1;
 }
