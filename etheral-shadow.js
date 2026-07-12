@@ -8,7 +8,7 @@
   'use strict';
 
   // ── Config (mirrors demo props) ──────────────────────────────
-  const COLOR        = 'rgba(128, 128, 128, 1)';
+  const COLOR        = 'rgba(0, 246, 255, 1)';
   const ANIM_SCALE   = 100;
   const ANIM_SPEED   = 90;
   const NOISE_OPACITY = 1;
@@ -79,7 +79,7 @@
   feHue.setAttribute('values', '180');
 
   const feMatrix = document.createElementNS(ns, 'feColorMatrix');
-  feMatrix.setAttribute('in',     'dist');
+  feMatrix.setAttribute('in',     'undulation');
   feMatrix.setAttribute('result', 'circulation');
   feMatrix.setAttribute('type',   'matrix');
   feMatrix.setAttribute('values', '4 0 0 0 1  4 0 0 0 1  4 0 0 0 1  1 0 0 0 0');
