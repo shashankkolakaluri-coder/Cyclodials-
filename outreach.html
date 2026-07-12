@@ -3,92 +3,443 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Outreach | Cyclodials FTC</title>
+  <title>CYCLODIALS | Outreach</title>
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    :root { --lime: #ccff00; }
+
+    .lime-glow { text-shadow: 0 0 10px rgba(204,255,0,0.6); }
+
+    @keyframes blink { 50% { opacity:0; } }
+    .lime-cursor {
+      display: inline-block;
+      width: 8px; height: 1.1em;
+      background: var(--lime);
+      animation: blink 1s step-end infinite;
+      vertical-align: middle;
+      margin-left: 4px;
+    }
+
+    .workshop-card {
+      border: 1px solid var(--outline-var);
+      background: var(--surface-high);
+      overflow: hidden;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .workshop-card:hover {
+      border-color: var(--lime);
+      box-shadow: 0 0 20px rgba(204,255,0,0.1);
+    }
+    .workshop-img {
+      height: 160px;
+      background: #000;
+      position: relative;
+      overflow: hidden;
+      display: flex; align-items:center; justify-content:center;
+    }
+    .workshop-tag {
+      position: absolute;
+      bottom: 8px; left: 8px;
+      background: var(--lime);
+      color: #000;
+      font-family: var(--font-mono);
+      font-size: 9px; font-weight: 700;
+      letter-spacing: 0.12em;
+      padding: 3px 8px;
+      text-transform: uppercase;
+    }
+
+    .metric-lime { color: var(--lime); }
+
+    /* Timeline spine for outreach */
+    .out-timeline { position: relative; }
+    .out-timeline-spine {
+      position: absolute;
+      left: 50%;
+      top: 0; bottom: 0;
+      width: 1px;
+      border-left: 1px dashed rgba(204,255,0,0.3);
+      transform: translateX(-50%);
+    }
+    .out-item {
+      display: grid;
+      grid-template-columns: 1fr 40px 1fr;
+      align-items: center;
+      margin-bottom: 80px;
+    }
+    .out-item-left  { text-align:right; padding-right:40px; }
+    .out-item-right { padding-left:40px; }
+    .out-dot {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      border: 4px solid #000;
+      background: var(--lime);
+      box-shadow: 0 0 15px var(--lime);
+      display: flex; align-items:center; justify-content:center;
+      z-index: 1;
+    }
+    .out-dot svg { width:14px; height:14px; }
+    .out-tag {
+      display: inline-block;
+      border: 1px solid var(--outline-var);
+      background: var(--surface);
+      font-family: var(--font-mono);
+      font-size: 9px; color: var(--lime);
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 4px 12px; margin-top: 12px;
+    }
+
+    @media (max-width:768px) {
+      .out-timeline-spine { left: 16px; }
+      .out-item { grid-template-columns: 1fr; }
+      .out-item-left { text-align:left; padding-right:0; padding-left:40px; }
+      .out-item-right { padding-left:40px; }
+      .out-dot { display:none; }
+    }
+  </style>
 </head>
 <body>
 
+<div class="cyber-grid-bg"></div>
+<div class="page-shell">
+
   <!-- ── Navigation ─────────────────────────────────────────── -->
-  <nav>
-    <a href="index.html" class="nav-logo">CYCLODIALS</a>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="team.html">Team</a></li>
-      <li><a href="robot.html">Robot</a></li><li><a href="gallery.html">Gallery</a></li>
-      <li><a href="outreach.html" class="active">Outreach</a></li><li><a href="contact.html">Contact</a></li>
-    </ul>
+  <nav class="topnav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-cyclo">CYCLO</span><span class="logo-dials">DIALS</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="robot.html">Robot</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="outreach.html" class="active">Outreach</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="contact.html" class="nav-cta" style="background:var(--lime); color:#000;">Join Us</a>
+    </div>
   </nav>
 
-  <!-- ── Page Header ────────────────────────────────────────── -->
-  <section style="padding-bottom: 1rem;">
-    <p class="section-label">Beyond the Bot</p>
-    <h2>Community <span class="accent">Outreach</span></h2>
-    <div class="divider"></div>
-    <p style="color: var(--text-muted); max-width: 560px;">
-      We believe STEM should reach further than our own pit. Here's how
-      Cyclodials gives back to the community.
-    </p>
-  </section>
+  <!-- ── Hero ───────────────────────────────────────────────── -->
+  <header style="padding:80px 48px 40px; position:relative; z-index:10;">
+    <div style="max-width:1100px; margin:0 auto;">
+      <div style="display:inline-block; padding:4px 16px; background:rgba(204,255,0,0.1); border:1px solid var(--lime); color:var(--lime); font-family:var(--font-mono); font-size:11px; letter-spacing:0.2em; text-transform:uppercase; margin-bottom:16px;">
+        MISSION_LOG: COMMUNITY_IMPACT_2025
+      </div>
+      <h1 class="display-xl" style="color:var(--text); max-width:860px; margin-bottom:24px;">
+        SOWING <span style="color:var(--lime);" class="lime-glow">CYBERNETIC</span> SEEDS<span class="lime-cursor"></span>
+      </h1>
+      <!-- TODO: Replace with your actual outreach summary -->
+      <p style="font-size:15px; color:var(--text-muted); max-width:640px; line-height:1.7; margin-bottom:32px;">
+        Our strategy centers on "Kinetic Mentorship." We don't just donate parts — we deploy engineering expertise directly to under-resourced schools to ensure the next generation of roboticists has a solid structural and logical foundation.
+      </p>
+      <!-- TODO: Replace all impact stats with real numbers -->
+      <div style="display:flex; flex-wrap:wrap; gap:32px; align-items:center;">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--lime)"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span class="code-text" style="text-transform:uppercase;"><!-- TODO -->?? Students Reached</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:8px;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--lime)"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          <span class="code-text" style="text-transform:uppercase;"><!-- TODO -->?? Partner Schools</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:8px;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--lime)"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          <span class="code-text" style="text-transform:uppercase;"><!-- TODO -->?? Rookie Teams Mentored</span>
+        </div>
+      </div>
+    </div>
+  </header>
 
-  <!-- ── Upcoming Events ────────────────────────────────────── -->
-  <section style="padding-top: 1rem;">
-    <p class="section-label">Upcoming Events</p>
-
-    <div class="timeline">
-
-      <div class="timeline-entry">
-        <div class="timeline-date">Coming Soon</div>
-        <h3>FTC Pit Tours for FLL Kids</h3>
-        <p>We plan to open up our pit to First LEGO League (FLL) teams from local elementary and middle schools, giving them an up-close look at what competing in FTC actually looks like. Students will get to see the robot in person, learn how it was designed and built, watch live demonstrations of our autonomous and driver-controlled modes, and talk directly with our team members about what goes into a full FTC season. The goal is to give younger students a real preview of what they can work toward as they grow in the FIRST program.</p>
-        <span class="timeline-tag">Education</span>
+  <!-- ── Community Impact Grid ──────────────────────────────── -->
+  <section style="padding:80px 48px; position:relative; z-index:10;">
+    <div style="max-width:1440px; margin:0 auto;">
+      <div class="section-heading-row" style="margin-bottom:48px;">
+        <h2 class="display-lg" style="color:#fff;">COMMUNITY <span style="color:var(--lime);">IMPACT</span></h2>
+        <div class="section-divider-line" style="background:linear-gradient(to right, var(--lime), transparent);"></div>
+        <span class="label-caps" style="color:var(--lime); white-space:nowrap;">STRATEGY_OVERVIEW_V3.0</span>
       </div>
 
-      <div class="timeline-entry">
-        <div class="timeline-date">Coming Soon</div>
-        <h3>STEM Robot Demo at Elementary &amp; Middle Schools</h3>
-        <p>We plan to visit elementary and middle schools in the Fremont area to run live robot demonstrations in classrooms and gymnasiums. Students will see the robot navigate autonomously, pick up game pieces, and respond to driver input — all while our team breaks down the engineering decisions behind each system. We'll cover the basics of mechanical design, software, and CAD in an accessible way, with the aim of sparking early interest in robotics and STEM for students who may never have seen a competition robot before.</p>
-        <span class="timeline-tag">Demo</span>
+      <div style="display:grid; grid-template-columns:2fr 1fr; gap:24px; margin-bottom:24px;">
+
+        <!-- Large feature card -->
+        <div style="border:1px solid var(--outline-var); background:var(--surface-low); padding:48px; position:relative; overflow:hidden;">
+          <div style="position:absolute; top:0; right:0; padding:16px; font-family:var(--font-mono); font-size:10px; color:rgba(204,255,0,0.4);">SEC-STRAT-01</div>
+          <h3 class="display-md" style="font-size:22px; margin-bottom:16px;">The "Nexus" Workshop Series</h3>
+          <!-- TODO: Replace with real workshop description -->
+          <p style="font-size:14px; color:var(--text-muted); line-height:1.7; max-width:540px; margin-bottom:24px;">
+            Our flagship outreach focuses on multi-week intensive "Nexus" workshops where we bring full-scale robot chassis to community centers to teach structural physics and Java programming.
+          </p>
+          <ul style="display:flex; flex-direction:column; gap:8px; margin-bottom:24px;">
+            <li style="display:flex; align-items:center; gap:8px; font-family:var(--font-mono); font-size:12px; color:var(--lime);">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+              CAD_TO_COMPONENTS_PIPELINE
+            </li>
+            <li style="display:flex; align-items:center; gap:8px; font-family:var(--font-mono); font-size:12px; color:var(--lime);">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+              OPEN_SOURCE_CURRICULUM_RELEASED
+            </li>
+          </ul>
+          <button class="btn-outline" style="border-color:var(--lime); color:var(--lime); padding:10px 24px; font-size:10px;"
+            onmouseover="this.style.background='var(--lime)'; this.style.color='#000';"
+            onmouseout="this.style.background='transparent'; this.style.color='var(--lime)';">
+            ACCESS CURRICULUM
+          </button>
+        </div>
+
+        <!-- Diversity metrics -->
+        <div style="border:1px solid var(--outline-var); background:var(--surface-low); padding:24px; display:flex; flex-direction:column; justify-content:space-between;">
+          <div>
+            <div style="padding:8px; background:rgba(204,255,0,0.15); display:inline-block; margin-bottom:16px;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--lime)"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3 class="display-md" style="font-size:20px; margin-bottom:12px;">Diversity Metrics</h3>
+            <!-- TODO: Update with real diversity stats -->
+            <p style="font-size:13px; color:var(--text-muted); line-height:1.6;">Our outreach specifically targets gender parity in local engineering programs. Currently, our workshops maintain a 52% female attendance rate.</p>
+          </div>
+          <div style="margin-top:24px;">
+            <div class="label-caps" style="color:var(--lime); margin-bottom:8px; font-size:9px;">GENDER_PARITY_PROGRESS</div>
+            <div style="width:100%; height:8px; background:var(--surface-top);">
+              <!-- TODO: Update width with real percentage -->
+              <div style="height:100%; width:52%; background:var(--lime); box-shadow:0 0 10px rgba(204,255,0,0.5);"></div>
+            </div>
+            <p class="code-text" style="font-size:10px; color:var(--text-dim); margin-top:4px;">52% — TODO</p>
+          </div>
+        </div>
+
       </div>
 
-      <div class="timeline-entry">
-        <div class="timeline-date">Coming Soon</div>
-        <h3>Beginner Robotics Workshop</h3>
-        <p>We plan to host hands-on robotics workshops open to elementary and middle school students with zero prior experience. Participants will work through the fundamentals of building a simple robot chassis, wiring basic components, and writing their first lines of control code. The workshop will be structured so that every student walks away having built and driven something themselves — not just watched. Our goal is to lower the barrier to entry for students who are curious about robotics but don't know where to start.</p>
-        <span class="timeline-tag">Workshop</span>
+      <!-- Metric cards row -->
+      <!-- TODO: Replace all metric values with real numbers -->
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:24px;">
+        <div class="metric-card" style="border-color:var(--outline-var);">
+          <span class="metric-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--lime)"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </span>
+          <div class="label-caps" style="color:var(--lime); font-size:9px; margin-bottom:8px;">ROBOTS_BUILT</div>
+          <div class="display-lg metric-lime"><!-- TODO -->??</div>
+          <p class="code-text" style="font-size:11px; color:var(--text-muted); margin-top:8px;">Student-led robots built during our build sprints.</p>
+        </div>
+        <div class="metric-card" style="border-color:var(--outline-var);">
+          <span class="metric-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--lime)"><circle cx="13" cy="7" r="1"/><path d="M9 17H5a2 2 0 0 0 0 4h4m6-4h4a2 2 0 0 1 0 4h-4M9 7V3a2 2 0 0 1 4 0v4M5 9a2 2 0 0 1 0-4h14a2 2 0 0 1 0 4"/></svg>
+          </span>
+          <div class="label-caps" style="color:var(--lime); font-size:9px; margin-bottom:8px;">VOLUNTEER_HOURS</div>
+          <div class="display-lg metric-lime"><!-- TODO -->??+</div>
+          <p class="code-text" style="font-size:11px; color:var(--text-muted); margin-top:8px;">Total hours logged by team members in outreach.</p>
+        </div>
+        <div class="metric-card" style="border-color:var(--outline-var);">
+          <span class="metric-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--lime)"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          </span>
+          <div class="label-caps" style="color:var(--lime); font-size:9px; margin-bottom:8px;">GITHUB_CONTRIBS</div>
+          <div class="display-lg metric-lime"><!-- TODO -->??</div>
+          <p class="code-text" style="font-size:11px; color:var(--text-muted); margin-top:8px;">Open-source libraries shared with the FTC community.</p>
+        </div>
       </div>
-
-      <div class="timeline-entry">
-        <div class="timeline-date">Coming Soon</div>
-        <h3>FLL Team Mentorship Program</h3>
-        <p>We plan to establish an ongoing mentorship program for FLL teams at local elementary and middle schools. Our members will work directly with these younger teams throughout their season — helping them think through robot design, refine their autonomous programs, prepare for judging presentations, and develop the kind of strategic mindset that makes a difference at tournaments. We want to build a real pipeline in our community where students move up through FIRST with support from teams who have been through it before.</p>
-        <span class="timeline-tag">Mentorship</span>
-      </div>
-
     </div>
   </section>
 
-  <!-- ── Contact ────────────────────────────────────────────── -->
-  <section style="padding-top: 2rem; padding-bottom: 5rem;">
-    <p class="section-label">Get Involved</p>
-    <p style="color: var(--text-muted); max-width: 560px; margin-bottom: 1.5rem;">
-      Interested in partnering with us, sponsoring the team, or having us out
-      for an event? Reach out.
-    </p>
-    <a href="mailto:cyclodials@gmail.com" class="btn">Contact Us</a>
+  <!-- ── Outreach Strategy Timeline ─────────────────────────── -->
+  <section style="padding:80px 48px; background:rgba(14,14,19,0.8); position:relative; overflow:hidden;">
+    <div style="max-width:900px; margin:0 auto; position:relative; z-index:1;">
+      <div style="text-align:center; margin-bottom:80px;">
+        <h2 class="display-lg" style="display:inline-block; position:relative;">
+          OUTREACH_<span style="color:var(--lime);">STRATEGY</span>
+          <div style="position:absolute; bottom:-8px; left:0; width:100%; height:1px; background:linear-gradient(to right, transparent, var(--lime), transparent);"></div>
+        </h2>
+        <p class="label-caps" style="color:var(--text-muted); margin-top:16px;">OUR CORE PILLARS FOR COMMUNITY GROWTH</p>
+      </div>
+
+      <div class="out-timeline">
+        <div class="out-timeline-spine"></div>
+
+        <!-- Pillar 1 -->
+        <div class="out-item">
+          <div class="out-item-left">
+            <div class="label-caps" style="color:var(--lime); font-size:9px; margin-bottom:4px;">PILLAR_01 // ACCESS</div>
+            <h4 class="display-md" style="font-size:20px; margin-bottom:8px;">Democratizing Hardware</h4>
+            <!-- TODO: Replace with your real access programs -->
+            <p style="font-size:13px; color:var(--text-muted); line-height:1.6;">We provide decommissioned parts and new REV components to schools lacking budget, ensuring no student is blocked by financial barriers.</p>
+          </div>
+          <div class="out-dot">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="3"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <div class="out-item-right">
+            <div class="out-tag">STRAT_NODE: HARDWARE_GIFTING</div>
+          </div>
+        </div>
+
+        <!-- Pillar 2 -->
+        <div class="out-item">
+          <div class="out-item-left">
+            <div class="out-tag">STATUS: ACTIVE_DEPLOYS</div>
+          </div>
+          <div class="out-dot">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="3"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+          </div>
+          <div class="out-item-right">
+            <div class="label-caps" style="color:var(--lime); font-size:9px; margin-bottom:4px;">PILLAR_02 // KNOWLEDGE</div>
+            <h4 class="display-md" style="font-size:20px; margin-bottom:8px;">The Mentor Nexus</h4>
+            <!-- TODO: Replace with your real mentorship details -->
+            <p style="font-size:13px; color:var(--text-muted); line-height:1.6;">Our senior members spend time weekly on-site at rookie team labs, teaching the "Cyclodials Way" of iterative design and rigorous testing.</p>
+          </div>
+        </div>
+
+        <!-- Pillar 3 -->
+        <div class="out-item">
+          <div class="out-item-left">
+            <div class="label-caps" style="color:var(--lime); font-size:9px; margin-bottom:4px;">PILLAR_03 // OPEN_SOURCE</div>
+            <h4 class="display-md" style="font-size:20px; margin-bottom:8px;">The Code Commons</h4>
+            <!-- TODO: Replace with real GitHub details -->
+            <p style="font-size:13px; color:var(--text-muted); line-height:1.6;">All our autonomous algorithms and custom CAD libraries are published on GitHub to serve as a reference for teams worldwide.</p>
+          </div>
+          <div class="out-dot">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="3"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <div class="out-item-right">
+            <div class="out-tag">REPOSITORY: PUBLIC_ACCESS</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Workshops Grid ──────────────────────────────────────── -->
+  <section style="padding:80px 48px; position:relative; z-index:10;">
+    <div style="max-width:1440px; margin:0 auto;">
+      <div class="section-heading-row" style="margin-bottom:48px;">
+        <h2 class="display-lg">HOSTED <span style="color:var(--lime);">WORKSHOPS</span></h2>
+        <div class="section-divider-line" style="background:linear-gradient(to right, var(--lime), transparent);"></div>
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:24px;">
+
+        <!-- TODO: Replace all placeholder workshop cards with real event data -->
+        <div class="workshop-card">
+          <div class="workshop-img">
+            <span class="label-caps" style="color:rgba(204,255,0,0.2); font-size:9px;">// PHOTO — TODO</span>
+            <div class="workshop-tag">MODULE: CAD_01</div>
+          </div>
+          <div style="padding:24px;">
+            <h3 style="font-size:18px; font-weight:700; margin-bottom:8px;">Structural Integrity 101</h3>
+            <p class="code-text" style="font-size:11px; color:var(--text-muted); margin-bottom:16px; line-height:1.5;">Designing chassis that survive the rigors of competitive robotics using Onshape.</p>
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <!-- TODO: Replace with real date -->
+              <span class="code-text" style="color:var(--lime);"><!-- TODO -->TBD</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--text-dim)" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="workshop-card">
+          <div class="workshop-img">
+            <span class="label-caps" style="color:rgba(204,255,0,0.2); font-size:9px;">// PHOTO — TODO</span>
+            <div class="workshop-tag">MODULE: FAB_02</div>
+          </div>
+          <div style="padding:24px;">
+            <h3 style="font-size:18px; font-weight:700; margin-bottom:8px;">Machining &amp; Metal</h3>
+            <p class="code-text" style="font-size:11px; color:var(--text-muted); margin-bottom:16px; line-height:1.5;">Hands-on training with CNC routers and lathe work for custom gearbox housing.</p>
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <!-- TODO: Replace with real date -->
+              <span class="code-text" style="color:var(--lime);"><!-- TODO -->TBD</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--text-dim)" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="workshop-card" style="border-color:rgba(204,255,0,0.4);">
+          <div class="workshop-img">
+            <span class="label-caps" style="color:rgba(204,255,0,0.2); font-size:9px;">// PHOTO — TODO</span>
+            <div class="workshop-tag">MODULE: CODE_03</div>
+          </div>
+          <div style="padding:24px;">
+            <h3 style="font-size:18px; font-weight:700; margin-bottom:8px;">Java for Autonomous</h3>
+            <p class="code-text" style="font-size:11px; color:var(--text-muted); margin-bottom:16px; line-height:1.5;">Mastering state machines and PID controllers for consistent autonomous runs.</p>
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <!-- TODO: Replace with real date -->
+              <span class="code-text" style="color:var(--lime);"><!-- TODO -->TBD</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--text-dim)" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="workshop-card">
+          <div class="workshop-img">
+            <span class="label-caps" style="color:rgba(204,255,0,0.2); font-size:9px;">// PHOTO — TODO</span>
+            <div class="workshop-tag">MODULE: SYS_04</div>
+          </div>
+          <div style="padding:24px;">
+            <h3 style="font-size:18px; font-weight:700; margin-bottom:8px;">Sensor Nexus Integration</h3>
+            <p class="code-text" style="font-size:11px; color:var(--text-muted); margin-bottom:16px; line-height:1.5;">Integrating Odometry pods and REV Color Sensors for high-precision navigation.</p>
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <!-- TODO: Replace with real date -->
+              <span class="code-text" style="color:var(--lime);"><!-- TODO -->TBD</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--text-dim)" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ────────────────────────────────────────────────── -->
+  <section style="padding:80px 48px; position:relative; z-index:10;">
+    <div style="max-width:800px; margin:0 auto; text-align:center; border:2px solid var(--lime); background:rgba(204,255,0,0.04); padding:48px; backdrop-filter:blur(8px);">
+      <h2 class="display-lg" style="margin-bottom:16px;">Ignite the Machine</h2>
+      <p style="color:var(--text-muted); max-width:480px; margin:0 auto 32px; font-size:14px; line-height:1.7;">
+        Whether you're a rookie team needing guidance or a potential sponsor looking to fund a workshop, we're ready to connect.
+      </p>
+      <div style="display:flex; flex-wrap:wrap; gap:16px; justify-content:center;">
+        <button class="btn-outline" style="border-color:var(--lime); color:var(--lime); padding:14px 32px;"
+          onmouseover="this.style.background='var(--lime)'; this.style.color='#000';"
+          onmouseout="this.style.background='transparent'; this.style.color='var(--lime)';">
+          Request a Workshop
+        </button>
+        <a href="contact.html" class="btn-outline" style="border-color:var(--lime); color:var(--lime);"
+          onmouseover="this.style.background='rgba(204,255,0,0.1)'"
+          onmouseout="this.style.background='transparent'">
+          Partner With Us
+        </a>
+      </div>
+    </div>
   </section>
 
   <!-- ── Footer ─────────────────────────────────────────────── -->
   <footer>
-    <p><span>CYCLODIALS</span> &mdash; FTC Team #35788 &mdash; &copy; 2025</p>
-        <div style="margin-top:1rem;display:flex;align-items:center;gap:1.5rem;justify-content:center;flex-wrap:wrap;">
-      <a href="https://www.instagram.com/cycloidalsftc/" class="btn" style="font-size:0.68rem;padding:0.5rem 1.25rem;">Instagram</a>
-      <p style="color:var(--text-muted);font-size:0.75rem;letter-spacing:0.05em;margin:0;">Daily build sessions, robot progress, and behind-the-scenes from the season.</p>
+    <div class="footer-inner">
+      <div class="footer-brand">CYCLODIALS // <span>OUTREACH_HUB</span></div>
+      <div style="font-family:var(--font-mono); font-size:9px; color:var(--text-dim);">
+        © 2025 FTC TEAM 35788 CYCLODIALS. KINETIC ENGINEERING DIVISION.
+      </div>
+      <nav class="footer-links">
+        <a href="#">GitHub</a>
+        <a href="contact.html">Sponsorships</a>
+        <a href="#">Curriculum</a>
+      </nav>
     </div>
   </footer>
 
-  <script src="nav.js"></script>
+</div>
+
+<script src="etheral-shadow.js"></script>
+<script src="nav.js"></script>
+<script>
+  /* Hover glow on cards */
+  document.querySelectorAll('.metric-card, .workshop-card').forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      card.style.boxShadow = '0 0 20px rgba(204,255,0,0.1)';
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.boxShadow = '';
+    });
+  });
+</script>
 </body>
 </html>

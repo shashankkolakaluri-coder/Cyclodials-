@@ -3,229 +3,349 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Robot | Cyclodials FTC</title>
+  <title>CYCLODIALS | Robot Specs</title>
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    @keyframes blink { 50% { opacity: 0; } }
+    .blinking-cursor {
+      display: inline-block;
+      width: 8px; height: 16px;
+      background: var(--cyan);
+      animation: blink 1s step-end infinite;
+      vertical-align: middle;
+      margin-left: 4px;
+    }
+    .neon-border {
+      border: 1px solid var(--cyan-border);
+      box-shadow: 0 0 10px rgba(0,241,253,0.2);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .neon-border:hover {
+      border-color: var(--cyan);
+      box-shadow: 0 0 20px rgba(0,241,253,0.4);
+    }
+    @keyframes spin-slow { to { transform: rotate(360deg); } }
+    .spin-slow { animation: spin-slow 8s linear infinite; }
+  </style>
 </head>
 <body>
 
+<div class="cyber-grid-bg"></div>
+<div class="page-shell">
+
   <!-- ── Navigation ─────────────────────────────────────────── -->
-  <nav>
-    <a href="index.html" class="nav-logo">CYCLODIALS</a>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="team.html">Team</a></li>
-      <li><a href="robot.html" class="active">Robot</a></li><li><a href="gallery.html">Gallery</a></li>
-      <li><a href="outreach.html">Outreach</a></li><li><a href="contact.html">Contact</a></li>
-    </ul>
+  <nav class="topnav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-cyclo">CYCLO</span><span class="logo-dials">DIALS</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="robot.html" class="active">Robot</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="outreach.html">Outreach</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="contact.html" class="nav-cta">Join Us</a>
+    </div>
   </nav>
 
-  <!-- ── Robot Reveal ───────────────────────────────────────── -->
-  <section>
-    <p class="section-label">Season <!-- TODO: e.g. 2024–2025 INTO THE DEEP --></p>
-    <!-- TODO: Replace robot name with your actual robot name -->
-    <h2>Meet <span class="accent">UNIT-?</span></h2>
-    <div class="divider"></div>
+  <!-- ── Page Header ────────────────────────────────────────── -->
+  <main style="padding:80px 48px; max-width:1440px; margin:0 auto;">
 
-    <div class="robot-reveal">
+    <header style="margin-bottom:80px;">
+      <div style="display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; border-left:4px solid var(--cyan); padding-left:24px; margin-bottom:16px; gap:16px;">
+        <div>
+          <span class="code-text" style="color:var(--cyan); letter-spacing:0.3em; display:block; margin-bottom:8px;">SYSTEM_ACCESS::ROOT@FTC_35788</span>
+          <!-- TODO: Replace robot name/mark with your actual robot -->
+          <h1 class="display-xl" style="color:#e1e0fb; line-height:1;">
+            Into The Deep<br>
+            <span class="glow-cyan" style="color:#6ff6ff;">Mk. I Robot</span>
+          </h1>
+        </div>
+        <div style="text-align:right; padding-bottom:8px;">
+          <!-- TODO: Update serial number and status -->
+          <p class="code-text" style="color:var(--text-muted);">SERIAL_NO: CD-2025-01X</p>
+          <p class="code-text" style="color:var(--text-muted);">STATUS: <span style="color:#6ff6ff;">OPERATIONAL</span></p>
+        </div>
+      </div>
+      <div style="height:1px; background:rgba(71,70,76,0.3);"></div>
+    </header>
 
-      <!-- Robot photo -->
-      <div class="robot-image-wrap">
-        <!-- TODO: Replace this placeholder with a real robot photo -->
-        <!-- <img src="images/robot.jpg" alt="Cyclodials robot" style="width:100%;height:100%;object-fit:cover;" /> -->
-        <div class="robot-placeholder-icon">&#129302;</div>
-        <div class="robot-placeholder-text">// ROBOT PHOTO — TODO //</div>
+    <!-- ── Main Spec Bento ─────────────────────────────────── -->
+    <div style="display:grid; grid-template-columns: 4fr 5fr 3fr; gap:20px; margin-bottom:80px;">
+
+      <!-- Left: Spec cards -->
+      <div style="display:flex; flex-direction:column; gap:20px;">
+
+        <!-- Drivetrain -->
+        <div class="neon-border" style="background:rgba(31,31,31,0.6); backdrop-filter:blur(8px); padding:24px; position:relative;" class="scanline-card">
+          <div style="position:absolute; top:8px; right:8px;" class="badge badge-cyan">SEC-001</div>
+          <h3 class="label-caps" style="color:var(--cyan); margin-bottom:16px; display:flex; align-items:center; gap:8px;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+            Drive Train Specs
+          </h3>
+          <!-- TODO: Replace all spec values with real robot data -->
+          <table class="spec-table">
+            <tr><td>Configuration</td><td><!-- TODO -->4× GoBilda Mecanum</td></tr>
+            <tr><td>Motors</td><td><!-- TODO -->GoBilda 5203 (19.2:1)</td></tr>
+            <tr><td>Encoders</td><td><!-- TODO -->Optical Quadrature</td></tr>
+            <tr><td>Max RPM</td><td><!-- TODO -->312 RPM</td></tr>
+          </table>
+        </div>
+
+        <!-- Software Stack -->
+        <div class="neon-border" style="background:rgba(31,31,31,0.6); backdrop-filter:blur(8px); padding:24px; position:relative;">
+          <div style="position:absolute; top:8px; right:8px;" class="badge badge-cyan">SEC-002</div>
+          <h3 class="label-caps" style="color:var(--cyan); margin-bottom:16px; display:flex; align-items:center; gap:8px;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+            Software Stack
+          </h3>
+          <!-- TODO: Update with your actual software choices -->
+          <div style="background:rgba(0,0,0,0.4); padding:12px; border:1px solid var(--outline-var); margin-bottom:16px; font-family:var(--font-mono); font-size:11px; line-height:2;">
+            <p style="color:#e1e0fb;">&gt; LOADED: FtcRobotController</p>
+            <p style="color:#6ff6ff;">&gt; LOCALIZATION: OTOS Sensor</p>
+            <p style="color:#ffd7f5;">&gt; CV_MODE: Limelight / TensorFlow</p>
+            <p style="color:var(--text-muted);">&gt; CONTROL: FeedForward + PID <span class="blinking-cursor"></span></p>
+          </div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
+            <div style="border:1px solid var(--outline-var); padding:8px; text-align:center;">
+              <p style="font-family:var(--font-mono); font-size:9px; color:var(--text-dim);">AUTO_PATH</p>
+              <!-- TODO -->
+              <p style="font-family:var(--font-mono); font-size:11px; font-weight:700; color:#6ff6ff;">PEDROPATHING</p>
+            </div>
+            <div style="border:1px solid var(--outline-var); padding:8px; text-align:center;">
+              <p style="font-family:var(--font-mono); font-size:9px; color:var(--text-dim);">FRAMEWORK</p>
+              <!-- TODO -->
+              <p style="font-family:var(--font-mono); font-size:11px; font-weight:700; color:#6ff6ff;">FtcRobotCtrl</p>
+            </div>
+          </div>
+        </div>
+
       </div>
 
-      <!-- Specs -->
-      <div>
-        <!-- TODO: Replace all spec values with real measurements and components -->
-        <p style="color:var(--text-muted); margin-bottom:1.5rem; font-size:0.85rem;">
-          <!-- TODO: Write a short robot description paragraph -->
-          A compact, high-torque differential-swerve platform engineered for speed, precision,
-          and adaptability. Every subsystem was designed from scratch and iterated through
-          <!-- TODO: insert number --> competition cycles.
-        </p>
+      <!-- Center: Robot image / schematic -->
+      <div style="position:relative; background:rgba(31,31,31,0.2); backdrop-filter:blur(4px); border:1px solid rgba(0,241,253,0.2); min-height:500px; display:flex; align-items:center; justify-content:center; overflow:hidden;">
 
-        <table class="spec-table">
-          <tbody>
-            <tr>
-              <td>Drivetrain</td>
-              <!-- TODO --><td>Mecanum / Swerve / Tank — TODO</td>
-            </tr>
-            <tr>
-              <td>Drive Motors</td>
-              <!-- TODO --><td>?× GoBILDA / REV — TODO</td>
-            </tr>
-            <tr>
-              <td>Weight</td>
-              <!-- TODO --><td>?? lbs / ?? kg — TODO</td>
-            </tr>
-            <tr>
-              <td>Footprint</td>
-              <!-- TODO --><td>??" × ??" — TODO</td>
-            </tr>
-            <tr>
-              <td>Height</td>
-              <!-- TODO --><td>??" retracted / ??" extended — TODO</td>
-            </tr>
-            <tr>
-              <td>Intake</td>
-              <!-- TODO --><td>Describe intake mechanism — TODO</td>
-            </tr>
-            <tr>
-              <td>Scoring</td>
-              <!-- TODO --><td>Describe scoring mechanism — TODO</td>
-            </tr>
-            <tr>
-              <td>Sensors</td>
-              <!-- TODO --><td>IMU, Odometry, Vision — TODO</td>
-            </tr>
-            <tr>
-              <td>Vision</td>
-              <!-- TODO --><td>Limelight / Webcam + TensorFlow — TODO</td>
-            </tr>
-            <tr>
-              <td>Control Hub</td>
-              <!-- TODO --><td>REV Control Hub 1.1 — TODO</td>
-            </tr>
-            <tr>
-              <td>Auto Library</td>
-              <!-- TODO --><td>Road Runner / Pedro Pathing — TODO</td>
-            </tr>
-          </tbody>
-        </table>
+        <!-- Corner decorations -->
+        <div class="corner-tl"></div>
+        <div class="corner-tr"></div>
+        <div class="corner-bl"></div>
+        <div class="corner-br"></div>
+
+        <!-- Tech overlay text -->
+        <div style="position:absolute; top:16px; left:16px; font-family:var(--font-mono); font-size:9px; color:rgba(0,241,253,0.35); line-height:1.8;">
+          VOLT: 13.2V NOMINAL<br>AMP: 2.4A IDLE<br>SIGNAL: 2.4GHz
+        </div>
+        <div style="position:absolute; bottom:16px; right:16px; font-family:var(--font-mono); font-size:9px; color:rgba(0,241,253,0.35); line-height:1.8; text-align:right;">
+          ODOMETRY: SPARKFUN OTOS<br>HUB: REV CONTROL HUB<br>EXPANSION: REV EXP HUB
+        </div>
+
+        <!-- TODO: Replace with actual robot photo -->
+        <!-- <img src="images/robot.jpg" alt="Robot schematic" style="width:100%;height:100%;object-fit:contain; opacity:0.85;"> -->
+        <div style="display:flex; flex-direction:column; align-items:center; gap:16px; opacity:0.2; pointer-events:none;">
+          <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="#00f1fd" stroke-width="0.5">
+            <rect x="2" y="7" width="20" height="14" rx="1"/>
+            <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
+            <line x1="12" y1="12" x2="12" y2="12"/>
+          </svg>
+          <span class="label-caps" style="color:var(--cyan); font-size:9px;">// ROBOT PHOTO — TODO //</span>
+        </div>
+
+        <!-- Gradient overlay -->
+        <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%); pointer-events:none;"></div>
       </div>
 
-    </div>
-  </section>
+      <!-- Right: Manipulator + Telemetry -->
+      <div style="display:flex; flex-direction:column; gap:20px;">
 
-  <!-- ── Build Log / Timeline ───────────────────────────────── -->
-  <section>
-    <p class="section-label">Development History</p>
-    <h2>Build <span class="accent">Log</span></h2>
-    <div class="divider"></div>
+        <!-- Manipulator -->
+        <div class="neon-border" style="background:rgba(31,31,31,0.6); backdrop-filter:blur(8px); padding:24px; position:relative;">
+          <div style="position:absolute; top:8px; right:8px;" class="badge badge-cyan">SEC-003</div>
+          <h3 class="label-caps" style="color:var(--cyan); margin-bottom:16px; display:flex; align-items:center; gap:8px;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            Manipulator Systems
+          </h3>
+          <!-- TODO: Replace with real intake photo -->
+          <div style="aspect-ratio:1; background:rgba(0,0,0,0.4); border:1px solid var(--outline-var); margin-bottom:16px; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+            <span class="label-caps" style="color:rgba(0,241,253,0.2); font-size:9px;">// INTAKE PHOTO — TODO</span>
+          </div>
+          <!-- TODO: Update intake efficiency percentage -->
+          <div>
+            <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
+              <span class="code-text" style="font-size:9px; color:var(--text-dim);">INTAKE_EFFICIENCY</span>
+              <span class="code-text" style="font-size:9px; color:var(--cyan);">??%</span>
+            </div>
+            <div class="progress-bar"><div class="progress-fill" style="width:90%;"></div></div>
+          </div>
+          <!-- TODO: Update with real mechanism details -->
+          <div style="margin-top:12px; display:flex; flex-direction:column; gap:4px;">
+            <p class="code-text" style="font-size:10px; color:#6ff6ff;">ACTIVE: <!-- TODO --> Dual-Action Claw</p>
+            <p class="code-text" style="font-size:10px; color:#6ff6ff;">SERVO: <!-- TODO --> Axon Mini+ Actuators</p>
+          </div>
+        </div>
 
-    <div class="timeline">
+        <!-- Field Intelligence -->
+        <div class="neon-border" style="background:rgba(31,31,31,0.6); backdrop-filter:blur(8px); padding:24px;">
+          <h3 class="label-caps" style="color:var(--cyan); margin-bottom:16px;">Field_Intelligence</h3>
+          <div style="display:flex; align-items:center; gap:24px; margin-bottom:16px;">
+            <div style="width:48px; height:48px; border:2px dashed rgba(111,246,255,0.5); border-radius:50%; display:flex; align-items:center; justify-content:center;" class="spin-slow">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6ff6ff" stroke-width="2"><circle cx="12" cy="12" r="2"/><path d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14"/></svg>
+            </div>
+            <div>
+              <!-- TODO: Update localization hardware -->
+              <p class="display-md" style="font-size:22px; color:#6ff6ff; line-height:1;">OTOS</p>
+              <p class="code-text" style="font-size:9px; color:var(--text-dim);">LOC_HARDWARE</p>
+            </div>
+          </div>
+          <!-- TODO: Update with real sensor specs -->
+          <div style="display:flex; flex-direction:column; gap:8px;">
+            <div style="display:flex; justify-content:space-between;">
+              <span class="code-text" style="font-size:11px; color:var(--text-dim);">LATENCY</span>
+              <span class="code-text" style="font-size:11px; color:#e1e0fb;">8.5ms</span>
+            </div>
+            <div style="display:flex; justify-content:space-between;">
+              <span class="code-text" style="font-size:11px; color:var(--text-dim);">HEADING_ACC</span>
+              <span class="code-text" style="font-size:11px; color:#e1e0fb;">±0.05°</span>
+            </div>
+          </div>
+        </div>
 
-      <!-- Entry 1 -->
-      <div class="timeline-entry">
-        <!-- TODO: Replace with real date (e.g. "September 2024") -->
-        <div class="timeline-date">Month YYYY &mdash; TODO</div>
-        <!-- TODO: Replace title and body with real log entry -->
-        <h3>Kickoff &amp; Game Analysis</h3>
-        <p>
-          <!-- TODO: Write what happened at kickoff — game manual breakdown, initial strategy sessions, field element orders, etc. -->
-          The season officially began with the game reveal. The team broke into sub-groups
-          to study the game manual, score possibilities, and draft initial robot concepts.
-          Three drivetrain configurations were evaluated before a decision was made.
-        </p>
-        <span class="timeline-tag">Strategy</span>
-      </div>
-
-      <!-- Entry 2 -->
-      <div class="timeline-entry">
-        <!-- TODO: Replace with real date -->
-        <div class="timeline-date">Month YYYY &mdash; TODO</div>
-        <!-- TODO: Replace with real log entry -->
-        <h3>Prototype &amp; Iteration</h3>
-        <p>
-          <!-- TODO: Describe your actual prototyping phase — what mechanisms were tested, what failed, what succeeded -->
-          Cardboard and plywood prototypes were built for the intake and scoring systems.
-          The linear slide extension was iterated three times to hit the target cycle time.
-          CAD modelling began in OnShape once dimensions were locked in.
-        </p>
-        <span class="timeline-tag">Mechanical</span>
-        <span class="timeline-tag" style="margin-left:0.5rem;">CAD</span>
-      </div>
-
-      <!-- Entry 3 -->
-      <div class="timeline-entry">
-        <!-- TODO: Replace with real date -->
-        <div class="timeline-date">Month YYYY &mdash; TODO</div>
-        <!-- TODO: Replace with real log entry -->
-        <h3>Robot Build &amp; Wiring</h3>
-        <p>
-          <!-- TODO: Describe your build phase — parts ordered/cut, assembly milestones, wiring, first drive -->
-          Full metal assembly completed over two build weekends. The electrical harness
-          was planned in advance and colour-coded for rapid field repairs. First successful
-          drive under driver control achieved on <!-- TODO: date -->.
-        </p>
-        <span class="timeline-tag">Build</span>
-        <span class="timeline-tag" style="margin-left:0.5rem;">Electrical</span>
-      </div>
-
-      <!-- Entry 4 -->
-      <div class="timeline-entry">
-        <!-- TODO: Replace with real date -->
-        <div class="timeline-date">Month YYYY &mdash; TODO</div>
-        <!-- TODO: Replace with real log entry -->
-        <h3>Software &amp; Autonomous Tuning</h3>
-        <p>
-          <!-- TODO: Describe your software milestones — auto paths, tuning, driver practice -->
-          Road Runner spline paths were tuned for two autonomous routes: a high-scoring
-          five-sample path and a reliable two-sample fallback. PID coefficients for each
-          motor group were logged and version-controlled in the team GitHub repository.
-        </p>
-        <span class="timeline-tag">Software</span>
-        <span class="timeline-tag" style="margin-left:0.5rem;">Autonomous</span>
-      </div>
-
-      <!-- TODO: Add more entries as the season progresses -->
-      <!--
-      <div class="timeline-entry">
-        <div class="timeline-date">Month YYYY</div>
-        <h3>Entry Title</h3>
-        <p>Entry description.</p>
-        <span class="timeline-tag">Tag</span>
-      </div>
-      -->
-
-    </div>
-  </section>
-
-  <!-- ── Competition Results (placeholder) ──────────────────── -->
-  <section style="padding-top: 1rem;">
-    <p class="section-label">Competition Results</p>
-    <h2>On the <span class="accent">Field</span></h2>
-    <div class="divider"></div>
-
-    <!-- TODO: Fill in real competition results, or remove this section until results are available -->
-    <p style="color:var(--text-muted); font-size:0.85rem; max-width:600px;">
-      Results will be updated as the season progresses.
-      <!-- TODO: Add a table of events, rankings, and awards here -->
-    </p>
-
-    <div style="margin-top:1.5rem; display:flex; gap:1rem; flex-wrap:wrap;">
-      <div class="value-card" style="flex:1; min-width:200px;">
-        <h4>// Qualifier</h4>
-        <!-- TODO: Replace with real event name, date, and ranking -->
-        <p>Event Name — TODO &bull; Date — TODO &bull; Rank: ??/?? — TODO</p>
-      </div>
-      <div class="value-card" style="flex:1; min-width:200px;">
-        <h4>// League Meet</h4>
-        <!-- TODO: Replace with real event details -->
-        <p>Event Name — TODO &bull; Date — TODO &bull; Rank: ??/?? — TODO</p>
-      </div>
-      <div class="value-card" style="flex:1; min-width:200px;">
-        <h4>// State Championship</h4>
-        <!-- TODO: Update once/if qualified -->
-        <p>TBD &mdash; Qualification pending — TODO</p>
       </div>
     </div>
-  </section>
+
+    <!-- ── Build Log Timeline ──────────────────────────────── -->
+    <section style="margin-bottom:80px;">
+      <h2 class="label-caps" style="color:#e1e0fb; margin-bottom:8px; display:flex; align-items:center; gap:12px;">
+        <span style="width:32px; height:1px; background:#e1e0fb;"></span>
+        SYSTEMS_BUILD_LOG
+      </h2>
+
+      <div class="timeline" style="padding-top:40px;">
+        <div class="timeline-spine"></div>
+
+        <!-- Entry 1 -->
+        <div class="timeline-item">
+          <div class="timeline-item-left">
+            <!-- TODO: Replace with real date and content -->
+            <div class="timeline-label">Month YYYY — TODO</div>
+            <h4>Kickoff &amp; Game Analysis</h4>
+            <p>The season officially began with the game reveal. The team broke into sub-groups to study the game manual, score possibilities, and draft initial robot concepts. Three drivetrain configurations were evaluated.</p>
+            <span class="timeline-tag">[STRATEGY]</span>
+          </div>
+          <div class="timeline-dot">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="timeline-item-right"></div>
+        </div>
+
+        <!-- Entry 2 -->
+        <div class="timeline-item">
+          <div class="timeline-item-left"></div>
+          <div class="timeline-dot">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="timeline-item-right">
+            <!-- TODO: Replace with real date and content -->
+            <div class="timeline-label">Month YYYY — TODO</div>
+            <h4>Prototype &amp; Iteration</h4>
+            <p>Cardboard and plywood prototypes were built for the intake and scoring systems. The linear slide extension was iterated three times to hit the target cycle time. CAD modelling began in Onshape.</p>
+            <span class="timeline-tag">[MECHANICAL]</span>
+            <span class="timeline-tag" style="margin-left:8px;">[CAD]</span>
+          </div>
+        </div>
+
+        <!-- Entry 3 -->
+        <div class="timeline-item">
+          <div class="timeline-item-left">
+            <!-- TODO: Replace with real date and content -->
+            <div class="timeline-label">Month YYYY — TODO</div>
+            <h4>Robot Build &amp; Wiring</h4>
+            <p>Full metal assembly completed over two build weekends. The electrical harness was colour-coded for rapid field repairs. First successful drive under driver control achieved.</p>
+            <span class="timeline-tag">[BUILD]</span>
+            <span class="timeline-tag" style="margin-left:8px;">[ELECTRICAL]</span>
+          </div>
+          <div class="timeline-dot">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="timeline-item-right"></div>
+        </div>
+
+        <!-- Entry 4 -->
+        <div class="timeline-item">
+          <div class="timeline-item-left"></div>
+          <div class="timeline-dot">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="timeline-item-right">
+            <!-- TODO: Replace with real date and content -->
+            <div class="timeline-label">Month YYYY — TODO</div>
+            <h4>Software &amp; Autonomous Tuning</h4>
+            <p>Pedro Pathing spline paths were tuned for two autonomous routes: a high-scoring five-sample path and a reliable two-sample fallback. PID coefficients for each motor group were version-controlled on GitHub.</p>
+            <span class="timeline-tag">[SOFTWARE]</span>
+            <span class="timeline-tag" style="margin-left:8px;">[AUTONOMOUS]</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── Systems Diagnostic Breakdown ──────────────────────── -->
+    <section>
+      <h2 class="label-caps" style="color:#e1e0fb; margin-bottom:32px; display:flex; align-items:center; gap:12px;">
+        <span style="width:32px; height:1px; background:#e1e0fb;"></span>
+        SYSTEMS_DIAGNOSTIC_BREAKDOWN
+      </h2>
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px;">
+        <!-- TODO: Replace with real system descriptions -->
+        <div style="padding:24px; border:1px solid rgba(71,70,76,0.3); background:rgba(0,0,0,0.2); transition:border-color 0.2s;" onmouseover="this.style.borderColor='rgba(0,241,253,0.5)'" onmouseout="this.style.borderColor='rgba(71,70,76,0.3)'">
+          <h4 class="code-text" style="color:#6ff6ff; margin-bottom:12px; text-transform:uppercase;">Linear Slides (X-Axis)</h4>
+          <p style="font-size:14px; color:var(--text-muted); line-height:1.6;">
+            <!-- TODO: Replace with your actual slide specs -->
+            MISUMI SAR2 series telescopic rails powered by high-speed GoBilda 5203 motors. Optimized for 40-inch extension within 1.2 seconds.
+          </p>
+        </div>
+        <div style="padding:24px; border:1px solid rgba(71,70,76,0.3); background:rgba(0,0,0,0.2); transition:border-color 0.2s;" onmouseover="this.style.borderColor='rgba(0,241,253,0.5)'" onmouseout="this.style.borderColor='rgba(71,70,76,0.3)'">
+          <h4 class="code-text" style="color:#6ff6ff; margin-bottom:12px; text-transform:uppercase;">Vision Pipeline</h4>
+          <p style="font-size:14px; color:var(--text-muted); line-height:1.6;">
+            <!-- TODO: Replace with your actual vision setup -->
+            Limelight 3G running custom GRIP pipelines for sample color recognition and 3D pose estimation of submersible components.
+          </p>
+        </div>
+        <div style="padding:24px; border:1px solid rgba(71,70,76,0.3); background:rgba(0,0,0,0.2); transition:border-color 0.2s;" onmouseover="this.style.borderColor='rgba(0,241,253,0.5)'" onmouseout="this.style.borderColor='rgba(71,70,76,0.3)'">
+          <h4 class="code-text" style="color:#6ff6ff; margin-bottom:12px; text-transform:uppercase;">Structural Build</h4>
+          <p style="font-size:14px; color:var(--text-muted); line-height:1.6;">
+            <!-- TODO: Replace with your actual chassis description -->
+            GoBilda Strafer Chassis base with custom polycarbonate gussets and 3D printed TPU bumpers for high-impact durability.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
 
   <!-- ── Footer ─────────────────────────────────────────────── -->
   <footer>
-    <p><span>CYCLODIALS</span> &mdash; FTC Team #35788 &mdash; &copy; 2025</p>
-        <div style="margin-top:1rem;display:flex;align-items:center;gap:1.5rem;justify-content:center;flex-wrap:wrap;">
-      <a href="https://www.instagram.com/cycloidalsftc/" class="btn" style="font-size:0.68rem;padding:0.5rem 1.25rem;">Instagram</a>
-      <p style="color:var(--text-muted);font-size:0.75rem;letter-spacing:0.05em;margin:0;">Daily build sessions, robot progress, and behind-the-scenes from the season.</p>
+    <div class="footer-inner">
+      <div class="footer-brand">CYCLODIALS // KINETIC ENGINEERING DIVISION</div>
+      <nav class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="contact.html">Sponsorships</a>
+        <a href="#">Press Kit</a>
+      </nav>
+      <div style="font-family:var(--font-mono); font-size:9px; color:rgba(226,226,226,0.4);">
+        © 2025 FTC TEAM 35788 CYCLODIALS.<br>SOURCE: GITHUB REPOSITORY // MK I DEPLOYMENT
+      </div>
     </div>
   </footer>
 
-  <script src="nav.js"></script>
+</div>
+
+<script src="etheral-shadow.js"></script>
+<script src="nav.js"></script>
 </body>
 </html>

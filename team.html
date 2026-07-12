@@ -3,152 +3,338 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Team | Cyclodials FTC</title>
+  <title>CYCLODIALS | Kinetic Collective</title>
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Jitter on hover for buttons */
+    @keyframes jitter {
+      0%   { transform: translate(0); }
+      20%  { transform: translate(-2px, 1px); }
+      40%  { transform: translate(-2px, -1px); }
+      60%  { transform: translate(2px, 1px); }
+      80%  { transform: translate(2px, -1px); }
+      100% { transform: translate(0); }
+    }
+  </style>
 </head>
 <body>
 
+<div class="cyber-grid-bg"></div>
+
+<div class="page-shell">
+
   <!-- ── Navigation ─────────────────────────────────────────── -->
-  <nav>
-    <a href="index.html" class="nav-logo">CYCLODIALS</a>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="team.html" class="active">Team</a></li>
-      <li><a href="robot.html">Robot</a></li><li><a href="gallery.html">Gallery</a></li>
-      <li><a href="outreach.html">Outreach</a></li><li><a href="contact.html">Contact</a></li>
-    </ul>
+  <nav class="topnav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-cyclo">CYCLO</span><span class="logo-dials">DIALS</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="team.html" class="active">Team</a></li>
+        <li><a href="robot.html">Robot</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="outreach.html">Outreach</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="contact.html" class="nav-cta">Join Us</a>
+    </div>
   </nav>
 
   <!-- ── Page Header ────────────────────────────────────────── -->
-  <section style="padding-bottom: 1rem;">
-    <p class="section-label">The People Behind the Machine</p>
-    <h2>Meet the <span class="accent">Team</span></h2>
-    <div class="divider"></div>
-    
-  </section>
+  <div class="section" style="padding-bottom:0;">
+    <p class="code-text" style="color:var(--cyan); letter-spacing:0.3em; margin-bottom:16px;">// KINETIC_OPERATIONS</p>
+    <div style="display:flex; flex-direction:column; gap:4px; margin-bottom:16px;">
+      <h1 class="display-xl" style="color:#fff; line-height:1;">Kinetic</h1>
+      <h1 class="display-xl glow-cyan" style="color:var(--cyan); line-height:1;">Collective</h1>
+    </div>
+    <p style="color:var(--text-muted); max-width:560px; font-size:15px; line-height:1.6; margin-bottom:32px;">
+      The elite engineering force behind FTC Team 35788. We synchronize mechanical brute force with elegant software logic to dominate the competition field.
+    </p>
+  </div>
 
-  <!-- ── Software ───────────────────────────────────────────── -->
-  <section style="padding-top: 1rem;">
-    <p class="section-label">Software</p>
-    <div class="team-grid">
+  <!-- ── Software Sub-team ──────────────────────────────────── -->
+  <section class="section" style="padding-top:40px;">
+    <div class="section-tag" style="color:var(--cyan); margin-bottom:24px;">Software</div>
+    <div class="bento-grid">
 
-      <div class="member-card">
-        <img src="https://api.dicebear.com/7.x/bottts-neutral/svg?seed=aarna&backgroundColor=0a0a0f" alt="Aarna" class="member-photo" />
-        <div class="member-info">
-          <div class="member-name">AARNA</div>
-          <div class="member-role">Software</div>
+      <!-- Aarna -->
+      <div class="card glitch-border scanline-card" style="padding:24px; position:relative;">
+        <div style="position:absolute; top:8px; right:8px;" class="badge badge-cyan">SEC-001 // SW</div>
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:24px;">
+          <div>
+            <h3 class="display-md" style="font-size:22px; color:#fff;">AARNA</h3>
+            <p class="code-text" style="color:var(--cyan);">Software</p>
+          </div>
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00f1fd" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <div style="aspect-ratio:1; overflow:hidden; margin-bottom:16px; background:#0a0a0f;">
+          <!-- TODO: Replace with Aarna's photo -->
+          <img src="https://api.dicebear.com/7.x/bottts-neutral/svg?seed=aarna&backgroundColor=0a0b1e" alt="Aarna"
+               style="width:100%; height:100%; object-fit:cover; filter:grayscale(50%) contrast(1.1); transition:filter 0.4s;"
+               onmouseover="this.style.filter='grayscale(0%)'" onmouseout="this.style.filter='grayscale(50%) contrast(1.1)'" />
+        </div>
+        <!-- TODO: Add Aarna's bio and skills -->
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <span class="badge badge-cyan">Java</span>
+          <span class="badge badge-cyan">Pedro Pathing</span>
         </div>
       </div>
 
-      <div class="member-card">
-        <img src="https://api.dicebear.com/7.x/bottts-neutral/svg?seed=sai&backgroundColor=0a0a0f" alt="Sai" class="member-photo" />
-        <div class="member-info">
-          <div class="member-name">SAI</div>
-          <div class="member-role">Software</div>
+      <!-- Sai -->
+      <div class="card glitch-border scanline-card" style="padding:24px; position:relative;">
+        <div style="position:absolute; top:8px; right:8px;" class="badge badge-cyan">SEC-002 // SW</div>
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:24px;">
+          <div>
+            <h3 class="display-md" style="font-size:22px; color:#fff;">SAI</h3>
+            <p class="code-text" style="color:var(--cyan);">Software</p>
+          </div>
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00f1fd" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <div style="aspect-ratio:1; overflow:hidden; margin-bottom:16px; background:#0a0a0f;">
+          <!-- TODO: Replace with Sai's photo -->
+          <img src="https://api.dicebear.com/7.x/bottts-neutral/svg?seed=sai&backgroundColor=0a0b1e" alt="Sai"
+               style="width:100%; height:100%; object-fit:cover; filter:grayscale(50%) contrast(1.1); transition:filter 0.4s;"
+               onmouseover="this.style.filter='grayscale(0%)'" onmouseout="this.style.filter='grayscale(50%) contrast(1.1)'" />
+        </div>
+        <!-- TODO: Add Sai's bio and skills -->
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <span class="badge badge-cyan">Computer Vision</span>
+          <span class="badge badge-cyan">Auto</span>
         </div>
       </div>
 
-      <div class="member-card">
-        <img src="https://api.dicebear.com/7.x/bottts-neutral/svg?seed=zeba&backgroundColor=0a0a0f" alt="Zeba" class="member-photo" />
-        <div class="member-info">
-          <div class="member-name">ZEBA</div>
-          <div class="member-role">Software</div>
+      <!-- Zeba -->
+      <div class="card glitch-border scanline-card" style="padding:24px; position:relative;">
+        <div style="position:absolute; top:8px; right:8px;" class="badge badge-cyan">SEC-003 // SW</div>
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:24px;">
+          <div>
+            <h3 class="display-md" style="font-size:22px; color:#fff;">ZEBA</h3>
+            <p class="code-text" style="color:var(--cyan);">Software</p>
+          </div>
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00f1fd" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        </div>
+        <div style="aspect-ratio:1; overflow:hidden; margin-bottom:16px; background:#0a0a0f;">
+          <!-- TODO: Replace with Zeba's photo -->
+          <img src="https://api.dicebear.com/7.x/bottts-neutral/svg?seed=zeba&backgroundColor=0a0b1e" alt="Zeba"
+               style="width:100%; height:100%; object-fit:cover; filter:grayscale(50%) contrast(1.1); transition:filter 0.4s;"
+               onmouseover="this.style.filter='grayscale(0%)'" onmouseout="this.style.filter='grayscale(50%) contrast(1.1)'" />
+        </div>
+        <!-- TODO: Add Zeba's bio and skills -->
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <span class="badge badge-cyan">PID Tuning</span>
+          <span class="badge badge-cyan">Java</span>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- ── CAD ────────────────────────────────────────────────── -->
-  <section style="padding-top: 1rem;">
-    <p class="section-label">CAD</p>
-    <div class="team-grid">
+  <!-- ── CAD Sub-team ────────────────────────────────────────── -->
+  <section class="section" style="padding-top:16px;">
+    <div class="section-tag" style="color:var(--magenta); margin-bottom:24px;">CAD</div>
+    <div class="bento-grid">
 
-      <div class="member-card">
-        <img src="https://api.dicebear.com/7.x/bottts-neutral/svg?seed=isha&backgroundColor=0a0a0f" alt="Isha" class="member-photo" />
-        <div class="member-info">
-          <div class="member-name">ISHA</div>
-          <div class="member-role">CAD</div>
+      <!-- Isha -->
+      <div class="card glitch-border scanline-card" style="padding:24px; position:relative;">
+        <div style="position:absolute; top:8px; right:8px;" class="badge badge-mag">SEC-004 // CAD</div>
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:24px;">
+          <div>
+            <h3 class="display-md" style="font-size:22px; color:#fff;">ISHA</h3>
+            <p class="code-text" style="color:var(--magenta);">CAD</p>
+          </div>
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#d800d8" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        </div>
+        <div style="aspect-ratio:1; overflow:hidden; margin-bottom:16px; background:#0a0a0f;">
+          <!-- TODO: Replace with Isha's photo -->
+          <img src="https://api.dicebear.com/7.x/bottts-neutral/svg?seed=isha&backgroundColor=0a0b1e" alt="Isha"
+               style="width:100%; height:100%; object-fit:cover; filter:grayscale(50%) contrast(1.1); transition:filter 0.4s;"
+               onmouseover="this.style.filter='grayscale(0%)'" onmouseout="this.style.filter='grayscale(50%) contrast(1.1)'" />
+        </div>
+        <!-- TODO: Add progress metric and skills -->
+        <div style="margin-bottom:8px;">
+          <div style="display:flex; justify-content:space-between; margin-bottom:4px;">
+            <span class="code-text" style="font-size:10px; color:var(--text-dim);">TOLERANCE</span>
+            <span class="code-text" style="font-size:10px; color:var(--magenta);">0.001mm</span>
+          </div>
+          <div class="progress-bar"><div class="progress-fill mag" style="width:98%;"></div></div>
+        </div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <span class="badge badge-mag">Onshape</span>
+          <span class="badge badge-mag">3D Print</span>
         </div>
       </div>
 
-      <div class="member-card">
-        <img src="https://api.dicebear.com/7.x/bottts-neutral/svg?seed=soumya&backgroundColor=0a0a0f" alt="Soumya" class="member-photo" />
-        <div class="member-info">
-          <div class="member-name">SOUMYA</div>
-          <div class="member-role">CAD</div>
+      <!-- Soumya -->
+      <div class="card glitch-border scanline-card" style="padding:24px; position:relative;">
+        <div style="position:absolute; top:8px; right:8px;" class="badge badge-mag">SEC-005 // CAD</div>
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:24px;">
+          <div>
+            <h3 class="display-md" style="font-size:22px; color:#fff;">SOUMYA</h3>
+            <p class="code-text" style="color:var(--magenta);">CAD</p>
+          </div>
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#d800d8" stroke-width="1.5"><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"/><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="7.76" y2="16.24"/><line x1="16.24" y1="7.76" x2="19.07" y2="4.93"/></svg>
         </div>
+        <div style="aspect-ratio:1; overflow:hidden; margin-bottom:16px; background:#0a0a0f;">
+          <!-- TODO: Replace with Soumya's photo -->
+          <img src="https://api.dicebear.com/7.x/bottts-neutral/svg?seed=soumya&backgroundColor=0a0b1e" alt="Soumya"
+               style="width:100%; height:100%; object-fit:cover; filter:grayscale(50%) contrast(1.1); transition:filter 0.4s;"
+               onmouseover="this.style.filter='grayscale(0%)'" onmouseout="this.style.filter='grayscale(50%) contrast(1.1)'" />
+        </div>
+        <!-- TODO: Add skills -->
+        <p class="code-text" style="font-size:11px; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05em;">
+          > Transforms conceptual sketches into functional Onshape architectures. Structural design specialist.
+        </p>
       </div>
 
     </div>
   </section>
 
-  <!-- ── Build ──────────────────────────────────────────────── -->
-  <section style="padding-top: 1rem;">
-    <p class="section-label">Build</p>
-    <div class="team-grid">
+  <!-- ── Build Sub-team ─────────────────────────────────────── -->
+  <section class="section" style="padding-top:16px;">
+    <div class="section-tag" style="color:var(--cyan); margin-bottom:24px;">Build</div>
+    <div class="bento-grid">
 
-      <div class="member-card">
-        <img src="https://api.dicebear.com/7.x/bottts-neutral/svg?seed=kabir&backgroundColor=0a0a0f" alt="Kabir" class="member-photo" />
-        <div class="member-info">
-          <div class="member-name">KABIR</div>
-          <div class="member-role">Build</div>
+      <!-- Kabir -->
+      <div class="card glitch-border scanline-card" style="padding:24px; position:relative;">
+        <div style="position:absolute; top:8px; right:8px;" class="badge badge-cyan">SEC-006 // BUILD</div>
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:24px;">
+          <div>
+            <h3 class="display-md" style="font-size:22px; color:#fff;">KABIR</h3>
+            <p class="code-text" style="color:var(--cyan);">Build</p>
+          </div>
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00f1fd" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
         </div>
+        <div style="height:192px; overflow:hidden; margin-bottom:16px; background:#0a0a0f;">
+          <!-- TODO: Replace with Kabir's photo -->
+          <img src="https://api.dicebear.com/7.x/bottts-neutral/svg?seed=kabir&backgroundColor=0a0b1e" alt="Kabir"
+               style="width:100%; height:100%; object-fit:cover; filter:grayscale(50%) contrast(1.1); transition:filter 0.4s;"
+               onmouseover="this.style.filter='grayscale(0%)'" onmouseout="this.style.filter='grayscale(50%) contrast(1.1)'" />
+        </div>
+        <!-- TODO: Add Kabir's specializations -->
+        <ul style="display:flex; flex-direction:column; gap:6px;">
+          <li style="display:flex; align-items:center; gap:8px; font-family:var(--font-mono); font-size:11px; color:var(--text-muted);">
+            <span style="width:4px; height:4px; background:var(--cyan); flex-shrink:0;"></span> CHASSIS ASSEMBLY
+          </li>
+          <li style="display:flex; align-items:center; gap:8px; font-family:var(--font-mono); font-size:11px; color:var(--text-muted);">
+            <span style="width:4px; height:4px; background:var(--cyan); flex-shrink:0;"></span> DRIVETRAIN TUNING
+          </li>
+          <li style="display:flex; align-items:center; gap:8px; font-family:var(--font-mono); font-size:11px; color:var(--text-muted);">
+            <span style="width:4px; height:4px; background:var(--cyan); flex-shrink:0;"></span> FIELD REPAIR OPS
+          </li>
+        </ul>
       </div>
 
+    </div>
+  </section>
+
+  <!-- ── Crew Metrics ────────────────────────────────────────── -->
+  <section style="padding:48px; background:rgba(10,11,30,0.3); border-top:1px solid rgba(71,70,76,0.2); border-bottom:1px solid rgba(71,70,76,0.2);">
+    <div style="max-width:1440px; margin:0 auto;">
+      <div class="section-heading-row">
+        <h2 class="display-lg" style="color:#fff;">Crew Metrics</h2>
+        <div class="section-divider-line"></div>
+      </div>
+      <!-- TODO: Replace all metric values with real data -->
+      <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:48px;">
+        <div>
+          <p class="label-caps" style="color:var(--outline-var); margin-bottom:8px;">Development Cycles</p>
+          <p class="display-xl glow-cyan" style="color:var(--cyan); font-size:40px;">500+<span style="font-size:24px;">hrs</span></p>
+        </div>
+        <div>
+          <p class="label-caps" style="color:var(--outline-var); margin-bottom:8px;">Precision Rating</p>
+          <p class="display-xl glow-mag" style="color:var(--magenta); font-size:40px;">99.8<span style="font-size:24px;">%</span></p>
+        </div>
+        <div>
+          <p class="label-caps" style="color:var(--outline-var); margin-bottom:8px;">Personnel</p>
+          <p class="display-xl" style="color:#fff; font-size:40px;">6</p>
+        </div>
+        <div>
+          <p class="label-caps" style="color:var(--outline-var); margin-bottom:8px;">Current Build</p>
+          <p class="display-xl glow-cyan" style="color:var(--cyan); font-size:40px;">MK_I</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Crew Log Terminal ───────────────────────────────────── -->
+  <section class="section">
+    <div class="terminal-block">
+      <div class="terminal-header">
+        <span class="code-text" style="color:var(--cyan); font-size:10px;">// CREW_LOG_INTERNAL</span>
+        <div class="terminal-dots">
+          <span class="dot-red"></span>
+          <span class="dot-yellow"></span>
+          <span class="dot-green"></span>
+        </div>
+      </div>
+      <!-- TODO: Update log entries with real timestamps and messages -->
+      <div class="terminal-line"><span class="time">[16:05:42]</span> Collective link established. Handshake successful.</div>
+      <div class="terminal-line"><span class="time">[16:06:12]</span> <span class="user">AARNA:</span> Finalizing Pedro Pathing algorithms for Autonomous Period.</div>
+      <div class="terminal-line"><span class="time">[16:08:29]</span> <span class="user">ISHA:</span> Gearbox friction minimized. Efficiency peak reached.</div>
+      <div class="terminal-line"><span class="time">[16:10:55]</span> <span class="user">KABIR:</span> Chassis assembly complete. All fasteners torqued.</div>
+      <div class="terminal-line"><span class="time">[16:12:01]</span> <span class="sys">SYS_ADMIN:</span> FTC 35788 — Operational status: <span style="color:var(--cyan);">READY.</span></div>
+      <div style="display:flex; align-items:center; gap:8px; padding-top:16px;">
+        <span style="color:var(--cyan); font-family:var(--font-mono); font-weight:700;">&gt;</span>
+        <span class="terminal-cursor"></span>
+      </div>
     </div>
   </section>
 
   <!-- ── Mentors ─────────────────────────────────────────────── -->
-  <section style="padding-top: 1rem; padding-bottom: 5rem;">
-    <p class="section-label">Coaches &amp; Mentors</p>
-    <div class="team-grid">
-
-      <div class="member-card">
-        <img
-          src="https://api.dicebear.com/7.x/bottts-neutral/svg?seed=mentor1&backgroundColor=0a0a0f"
-          alt="Mentor placeholder"
-          class="member-photo"
-        />
-        <div class="member-info">
-          <div class="member-name">MENTOR NAME <!-- TODO --></div>
-          <div class="member-role">Head Coach</div>
-          <p class="member-bio">
-            Industry engineer and FIRST alumnus. Guides the team's design process and competition strategy.
-          </p>
-        </div>
+  <section class="section" style="padding-top:0;">
+    <div class="section-tag" style="color:var(--text-dim); margin-bottom:24px;">Coaches &amp; Mentors</div>
+    <div class="bento-grid">
+      <!-- TODO: Replace with real mentor info -->
+      <div class="card glitch-border" style="padding:24px;">
+        <div class="badge badge-cyan" style="margin-bottom:12px; display:inline-block;">MENTOR // HEAD COACH</div>
+        <h3 class="display-md" style="font-size:20px; color:#fff; margin-bottom:4px;">MENTOR NAME</h3>
+        <p class="code-text" style="color:var(--cyan); margin-bottom:12px;">Head Coach</p>
+        <p style="font-size:13px; color:var(--text-muted);">Industry engineer and FIRST alumnus. Guides the team's design process and competition strategy.</p>
       </div>
-
-      <div class="member-card">
-        <img
-          src="https://api.dicebear.com/7.x/bottts-neutral/svg?seed=mentor2&backgroundColor=0a0a0f"
-          alt="Mentor 2 placeholder"
-          class="member-photo"
-        />
-        <div class="member-info">
-          <div class="member-name">MENTOR NAME <!-- TODO --></div>
-          <div class="member-role">Software Mentor</div>
-          <p class="member-bio">
-            Professional software developer who mentors the programming sub-team.
-          </p>
-        </div>
+      <div class="card glitch-border" style="padding:24px;">
+        <div class="badge badge-mag" style="margin-bottom:12px; display:inline-block;">MENTOR // SW</div>
+        <h3 class="display-md" style="font-size:20px; color:#fff; margin-bottom:4px;">MENTOR NAME</h3>
+        <p class="code-text" style="color:var(--magenta); margin-bottom:12px;">Software Mentor</p>
+        <p style="font-size:13px; color:var(--text-muted);">Professional software developer who mentors the programming sub-team on Java and autonomy frameworks.</p>
       </div>
-
     </div>
   </section>
 
   <!-- ── Footer ─────────────────────────────────────────────── -->
   <footer>
-    <p><span>CYCLODIALS</span> &mdash; FTC Team #35788 &mdash; &copy; 2025</p>
-        <div style="margin-top:1rem;display:flex;align-items:center;gap:1.5rem;justify-content:center;flex-wrap:wrap;">
-      <a href="https://www.instagram.com/cycloidalsftc/" class="btn" style="font-size:0.68rem;padding:0.5rem 1.25rem;">Instagram</a>
-      <p style="color:var(--text-muted);font-size:0.75rem;letter-spacing:0.05em;margin:0;">Daily build sessions, robot progress, and behind-the-scenes from the season.</p>
+    <div class="footer-inner">
+      <div class="footer-brand">© 2025 FTC TEAM <span>#35788</span> — <span>CYCLODIALS</span>. KINETIC ENGINEERING DIVISION.</div>
+      <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap; justify-content:center;">
+        <a href="https://www.instagram.com/cycloidalsftc/" target="_blank" class="btn-cyan" style="padding:8px 20px; font-size:10px;">Instagram</a>
+        <span style="font-family:var(--font-mono); font-size:11px; color:var(--text-dim);">Daily build sessions &amp; behind-the-scenes from the season.</span>
+      </div>
+      <nav class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="contact.html">Sponsorships</a>
+        <a href="#">Press Kit</a>
+      </nav>
     </div>
   </footer>
 
-  <script src="nav.js"></script>
+</div><!-- /page-shell -->
+
+<script src="etheral-shadow.js"></script>
+<script src="nav.js"></script>
+<script>
+  /* Jitter effect on nav CTA */
+  document.querySelectorAll('.nav-cta').forEach(btn => {
+    btn.addEventListener('mouseenter', () => {
+      let n = 0;
+      const id = setInterval(() => {
+        btn.style.transform = `translate(${(Math.random()*4-2).toFixed(1)}px, ${(Math.random()*4-2).toFixed(1)}px)`;
+        if (++n > 5) { clearInterval(id); btn.style.transform = ''; }
+      }, 40);
+    });
+  });
+</script>
 </body>
 </html>

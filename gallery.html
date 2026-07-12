@@ -3,180 +3,308 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gallery | Cyclodials FTC</title>
+  <title>VISUAL_ARCHIVE | CYCLODIALS</title>
   <link rel="stylesheet" href="styles.css" />
   <style>
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 1.5rem;
+    @keyframes blink { 50% { opacity: 0; } }
+    .terminal-cursor-title::after {
+      content: '';
+      display: inline-block;
+      width: 10px; height: 1.1em;
+      background: var(--cyan);
+      margin-left: 6px;
+      animation: blink 1s infinite;
+      vertical-align: middle;
     }
-    .video-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      transition: border-color 0.25s, box-shadow 0.25s;
+    .repo-card {
+      background: rgba(31,31,31,0.5);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--outline-var);
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
     }
-    .video-card:hover {
-      border-color: var(--accent-dim);
-      box-shadow: var(--glow-sm);
+    .repo-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 2px;
+      background: var(--cyan);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s;
     }
-    .video-frame {
-      aspect-ratio: 16/9;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 0.75rem;
-      background: linear-gradient(135deg, #00f0ff08 0%, transparent 60%);
-      border-bottom: 1px solid var(--border);
-    }
-    .video-frame .play-icon {
-      width: 52px;
-      height: 52px;
-      border: 1px solid var(--accent-dim);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--accent);
-      font-size: 1.1rem;
-      opacity: 0.6;
-    }
-    .video-frame .placeholder-label {
-      font-size: 0.62rem;
-      letter-spacing: 0.2em;
-      color: var(--text-muted);
-      text-transform: uppercase;
-    }
-    .video-info { padding: 1rem 1.25rem; }
-    .video-title {
-      font-family: var(--font-head);
-      font-size: 0.78rem;
-      letter-spacing: 0.08em;
-      color: #e8eaf6;
-      margin-bottom: 0.3rem;
-    }
-    .video-desc {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      line-height: 1.5;
-    }
+    .repo-card:hover::before { transform: scaleX(1); }
   </style>
 </head>
 <body>
 
+<div class="cyber-grid-bg"></div>
+<div class="page-shell">
+
   <!-- ── Navigation ─────────────────────────────────────────── -->
-  <nav>
-    <a href="index.html" class="nav-logo">CYCLODIALS</a>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="team.html">Team</a></li>
-      <li><a href="robot.html">Robot</a></li>
-      <li><a href="gallery.html" class="active">Gallery</a></li>
-      <li><a href="outreach.html">Outreach</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
+  <nav class="topnav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-cyclo">CYCLO</span><span class="logo-dials">DIALS</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="robot.html">Robot</a></li>
+        <li><a href="gallery.html" class="active">Gallery</a></li>
+        <li><a href="outreach.html">Outreach</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="contact.html" class="nav-cta">Join Us</a>
+    </div>
   </nav>
 
-  <!-- ── Page Header ────────────────────────────────────────── -->
-  <section style="padding-bottom: 1rem;">
-    <p class="section-label">Watch Us Work</p>
-    <h2>Robot <span class="accent">Gallery</span></h2>
-    <div class="divider"></div>
-    <p style="color: var(--text-muted); max-width: 560px;">
-      Build sessions, test runs, and match footage from the season. Videos
-      coming soon as the robot comes together.
-    </p>
-  </section>
+  <main style="padding:80px 48px; max-width:1440px; margin:0 auto; min-height:calc(100vh - 64px);">
 
-  <!-- ── Video Grid ─────────────────────────────────────────── -->
-  <section style="padding-top: 1rem; padding-bottom: 5rem;">
-    <div class="gallery-grid">
+    <!-- ── Page Title ──────────────────────────────────────── -->
+    <div style="margin-bottom:80px; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-end; border-left:4px solid var(--cyan); padding-left:24px; gap:16px;">
+      <div>
+        <p class="label-caps" style="color:var(--cyan); margin-bottom:8px;">System Status: Archive Online</p>
+        <!-- TODO: Update total entry count -->
+        <h1 class="display-xl terminal-cursor-title" style="color:var(--text); text-transform:uppercase;" id="galleryTitle"></h1>
+      </div>
+      <div style="text-align:right; padding-bottom:8px;">
+        <!-- TODO: Update entry count and last sync date -->
+        <p class="code-text" style="color:var(--outline-var);">TOTAL_ENTRIES: <!-- TODO -->??</p>
+        <p class="code-text" style="color:var(--outline-var);">LAST_SYNC: <!-- TODO -->2025.XX.XX</p>
+      </div>
+    </div>
 
-      <!-- To add a real video, replace a .video-frame div with:
-           <iframe src="https://www.youtube.com/embed/VIDEO_ID" style="aspect-ratio:16/9;width:100%;border:0;" allowfullscreen></iframe> -->
+    <!-- ── Filter Bar ──────────────────────────────────────── -->
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterGallery('all', this)">All_Files</button>
+      <button class="filter-btn" onclick="filterGallery('season', this)">Season_Milestones</button>
+      <button class="filter-btn" onclick="filterGallery('build', this)">Build_Cycles</button>
+      <button class="filter-btn" onclick="filterGallery('competition', this)">Competition_Logs</button>
+    </div>
 
-      <div class="video-card">
-        <video controls style="width:100%;aspect-ratio:16/9;display:block;background:#000;">
-          <source src="videos/drivetrain-test.mov" type="video/quicktime">
-          Your browser does not support this video.
-        </video>
-        <div class="video-info">
-          <div class="video-title">DRIVETRAIN FIRST TEST</div>
-          <p class="video-desc">First movement test of the chassis.</p>
+    <!-- ── Bento Gallery Grid ──────────────────────────────── -->
+    <!-- TODO: Replace all placeholder divs with real <img> tags once you have photos -->
+    <div class="gallery-bento" id="galleryGrid">
+
+      <!-- Featured: 2-col × 2-row -->
+      <div class="gallery-card g-2c-2r" data-cat="season">
+        <div class="gallery-card-id">LOG-EVT-2025-KICK</div>
+        <div style="width:100%;height:100%;background:linear-gradient(135deg,rgba(0,241,253,0.07),rgba(216,0,216,0.05)); display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(0,241,253,0.3)" stroke-width="1"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          <span class="label-caps" style="color:rgba(0,241,253,0.25); font-size:9px;">// FEATURED PHOTO — TODO</span>
+        </div>
+        <div class="gallery-card-overlay">
+          <!-- TODO: Replace with real event name and location -->
+          <h3 class="label-caps" style="color:var(--cyan);">Season Kickoff 2025</h3>
+          <p class="code-text" style="font-size:9px; color:var(--outline-var); margin-top:4px;">Location: TBD <!-- TODO --></p>
         </div>
       </div>
 
-      <div class="video-card">
-        <div class="video-frame">
-          <div class="play-icon">&#9654;</div>
-          <div class="placeholder-label">Video Coming Soon</div>
+      <!-- Season card 1 -->
+      <div class="gallery-card" data-cat="season">
+        <div class="gallery-card-id">LOG-EVT-2025-Q1</div>
+        <div style="width:100%;height:100%;background:linear-gradient(135deg,rgba(0,241,253,0.05),transparent); display:flex;align-items:center;justify-content:center;">
+          <span class="label-caps" style="color:rgba(0,241,253,0.2); font-size:9px;">// PHOTO — TODO</span>
         </div>
-        <div class="video-info">
-          <div class="video-title">AUTONOMOUS TESTING</div>
-          <p class="video-desc">Early autonomous pathing runs.</p>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <div class="video-frame">
-          <div class="play-icon">&#9654;</div>
-          <div class="placeholder-label">Video Coming Soon</div>
-        </div>
-        <div class="video-info">
-          <div class="video-title">BUILD SESSION TIMELAPSE</div>
-          <p class="video-desc">The team assembling the robot.</p>
+        <div class="gallery-card-overlay">
+          <!-- TODO: Replace with real qualifier details -->
+          <h4 class="label-caps" style="font-size:10px; color:var(--text);">Qualifier #1</h4>
         </div>
       </div>
 
-      <div class="video-card">
-        <div class="video-frame">
-          <div class="play-icon">&#9654;</div>
-          <div class="placeholder-label">Video Coming Soon</div>
+      <!-- Build card 1 -->
+      <div class="gallery-card" data-cat="build">
+        <div class="gallery-card-id">LOG-BLD-001</div>
+        <div style="width:100%;height:100%;background:linear-gradient(135deg,rgba(216,0,216,0.05),transparent); display:flex;align-items:center;justify-content:center;">
+          <span class="label-caps" style="color:rgba(216,0,216,0.2); font-size:9px;">// PHOTO — TODO</span>
         </div>
-        <div class="video-info">
-          <div class="video-title">ROBOT REVEAL</div>
-          <p class="video-desc">Full robot reveal for the season.</p>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <div class="video-frame">
-          <div class="play-icon">&#9654;</div>
-          <div class="placeholder-label">Video Coming Soon</div>
-        </div>
-        <div class="video-info">
-          <div class="video-title">MATCH FOOTAGE</div>
-          <p class="video-desc">Competition matches from qualifiers.</p>
+        <div class="gallery-card-overlay">
+          <!-- TODO: Replace with real build milestone label -->
+          <h4 class="label-caps" style="font-size:10px; color:var(--text);">Drivetrain Modeling</h4>
         </div>
       </div>
 
-      <div class="video-card">
-        <div class="video-frame">
-          <div class="play-icon">&#9654;</div>
-          <div class="placeholder-label">Video Coming Soon</div>
+      <!-- Competition wide card -->
+      <div class="gallery-card g-2c" data-cat="competition">
+        <div class="gallery-card-id">LOG-COMP-2025-REG</div>
+        <div style="width:100%;height:100%;background:linear-gradient(90deg,rgba(0,241,253,0.06),transparent); display:flex;align-items:center;justify-content:center;">
+          <span class="label-caps" style="color:rgba(0,241,253,0.2); font-size:9px;">// COMPETITION PHOTO — TODO</span>
         </div>
-        <div class="video-info">
-          <div class="video-title">BEHIND THE SCENES</div>
-          <p class="video-desc">Daily sessions and team moments.</p>
+        <div class="gallery-card-overlay" style="display:flex; justify-content:space-between; align-items:center;">
+          <!-- TODO: Replace with real competition name -->
+          <h4 class="label-caps" style="font-size:10px; color:var(--text);">Regional Competition</h4>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2"><circle cx="12" cy="10" r="3"/><path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 6.9 8 11.7z"/></svg>
+        </div>
+      </div>
+
+      <!-- Build card 2 -->
+      <div class="gallery-card" data-cat="build">
+        <div class="gallery-card-id">LOG-BLD-042</div>
+        <div style="width:100%;height:100%;background:rgba(216,0,216,0.03); display:flex;align-items:center;justify-content:center;">
+          <span class="label-caps" style="color:rgba(216,0,216,0.2); font-size:9px;">// PHOTO — TODO</span>
+        </div>
+        <div class="gallery-card-overlay">
+          <!-- TODO -->
+          <h4 class="label-caps" style="font-size:10px; color:var(--text);">Intake Prototyping</h4>
+        </div>
+      </div>
+
+      <!-- Build card 3 -->
+      <div class="gallery-card" data-cat="build">
+        <div class="gallery-card-id">LOG-SW-012</div>
+        <div style="width:100%;height:100%;background:rgba(0,241,253,0.03); display:flex;align-items:center;justify-content:center;">
+          <span class="label-caps" style="color:rgba(0,241,253,0.2); font-size:9px;">// PHOTO — TODO</span>
+        </div>
+        <div class="gallery-card-overlay">
+          <!-- TODO -->
+          <h4 class="label-caps" style="font-size:10px; color:var(--text);">Vision System Calibration</h4>
         </div>
       </div>
 
     </div>
-  </section>
+
+    <!-- ── Technical Repos Section ─────────────────────────── -->
+    <div style="margin-top:80px;">
+      <div class="section-heading-row" style="margin-bottom:48px;">
+        <h2 class="display-lg" style="color:var(--text);">TECHNICAL_REPOS</h2>
+        <div class="section-divider-line"></div>
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px;">
+
+        <div class="repo-card">
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:24px;">
+            <div>
+              <!-- TODO: Update reference ID -->
+              <span class="code-text" style="font-size:9px; color:var(--cyan); display:block; margin-bottom:4px;">REF: SUB_INTAKE_V1</span>
+              <h5 class="label-caps" style="color:var(--text);">Active Intake System</h5>
+            </div>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--text-dim)" stroke-width="2"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/></svg>
+          </div>
+          <!-- TODO: Replace with real intake photo -->
+          <div style="aspect-ratio:16/9; margin-bottom:16px; border:1px solid rgba(0,241,253,0.2); background:#000; display:flex;align-items:center;justify-content:center;">
+            <span class="label-caps" style="color:rgba(0,241,253,0.15); font-size:9px;">// PHOTO — TODO</span>
+          </div>
+          <!-- TODO: Update description -->
+          <p class="code-text" style="font-size:11px; color:var(--text-muted); margin-bottom:16px; line-height:1.6;">
+            High-speed collection utilizing custom compliant wheels and dual goBILDA motors. Optimized for rapid cycle times.
+          </p>
+          <div style="display:flex; gap:8px;">
+            <span class="badge badge-cyan">STABLE</span>
+            <span class="badge badge-mag">FINALIZED</span>
+          </div>
+        </div>
+
+        <div class="repo-card">
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:24px;">
+            <div>
+              <!-- TODO: Update reference ID -->
+              <span class="code-text" style="font-size:9px; color:var(--cyan); display:block; margin-bottom:4px;">REF: DRV_NAV_PEDRO</span>
+              <h5 class="label-caps" style="color:var(--text);">Motion Profile Engine</h5>
+            </div>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--text-dim)" stroke-width="2"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>
+          </div>
+          <!-- TODO: Replace with real pathing photo -->
+          <div style="aspect-ratio:16/9; margin-bottom:16px; border:1px solid rgba(0,241,253,0.2); background:#000; display:flex;align-items:center;justify-content:center;">
+            <span class="label-caps" style="color:rgba(0,241,253,0.15); font-size:9px;">// PHOTO — TODO</span>
+          </div>
+          <!-- TODO: Update description -->
+          <p class="code-text" style="font-size:11px; color:var(--text-muted); margin-bottom:16px; line-height:1.6;">
+            Pedro Pathing implementation for precise field navigation, integrated with SparkFun OTOS for robust localization.
+          </p>
+          <div style="display:flex; gap:8px;">
+            <span class="badge badge-cyan">CALIBRATED</span>
+            <span class="badge badge-mag">PRODUCTION</span>
+          </div>
+        </div>
+
+        <div class="repo-card">
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:24px;">
+            <div>
+              <!-- TODO: Update reference ID -->
+              <span class="code-text" style="font-size:9px; color:var(--cyan); display:block; margin-bottom:4px;">REF: SW_AUTO_V1</span>
+              <h5 class="label-caps" style="color:var(--text);">Autonomous Decision Tree</h5>
+            </div>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--text-dim)" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <!-- TODO: Replace with real auto code photo -->
+          <div style="aspect-ratio:16/9; margin-bottom:16px; border:1px solid rgba(0,241,253,0.2); background:#000; display:flex;align-items:center;justify-content:center;">
+            <span class="label-caps" style="color:rgba(0,241,253,0.15); font-size:9px;">// PHOTO — TODO</span>
+          </div>
+          <!-- TODO: Update description -->
+          <p class="code-text" style="font-size:11px; color:var(--text-muted); margin-bottom:16px; line-height:1.6;">
+            Java-based state machine for multi-sample autonomous routines with real-time sensor fusion logic and fallback paths.
+          </p>
+          <div style="display:flex; gap:8px;">
+            <span class="badge badge-cyan">REFACTORED</span>
+            <span class="badge badge-mag">LIVE</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── Load more ───────────────────────────────────────── -->
+    <!-- TODO: Hook this up to more gallery entries as the season progresses -->
+    <div style="margin-top:80px; text-align:center;">
+      <button class="btn-cyan" style="display:inline-flex; align-items:center; gap:12px; border-width:2px;">
+        LOAD_OLDER_LOGS
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+    </div>
+
+  </main>
 
   <!-- ── Footer ─────────────────────────────────────────────── -->
   <footer>
-    <p><span>CYCLODIALS</span> &mdash; FTC Team #35788 &mdash; &copy; 2025</p>
-    <div style="margin-top:1rem;display:flex;align-items:center;gap:1.5rem;justify-content:center;flex-wrap:wrap;">
-      <a href="https://www.instagram.com/cycloidalsftc/" class="btn" style="font-size:0.68rem;padding:0.5rem 1.25rem;">Instagram</a>
-      <p style="color:var(--text-muted);font-size:0.75rem;letter-spacing:0.05em;margin:0;">Daily build sessions, robot progress, and behind-the-scenes from the season.</p>
+    <div class="footer-inner">
+      <div class="footer-brand">CYCLODIALS // <span>ARCHIVE_v1.0</span></div>
+      <div style="font-family:var(--font-mono); font-size:9px; color:var(--text-dim);">
+        © 2025 FTC TEAM 35788 CYCLODIALS. KINETIC ENGINEERING DIVISION.
+      </div>
+      <nav class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="contact.html">Sponsorships</a>
+        <a href="#">Press Kit</a>
+      </nav>
     </div>
   </footer>
 
-  <script src="nav.js"></script>
+</div>
+
+<script src="etheral-shadow.js"></script>
+<script src="nav.js"></script>
+<script>
+function filterGallery(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('#galleryGrid .gallery-card').forEach(card => {
+    card.style.display = (cat === 'all' || card.dataset.cat === cat) ? '' : 'none';
+  });
+}
+
+document.querySelectorAll('.gallery-card').forEach(card => {
+  card.addEventListener('mouseenter', () => {
+    card.style.borderColor = 'var(--magenta)';
+    setTimeout(() => card.style.borderColor = 'var(--cyan)', 60);
+    setTimeout(() => card.style.borderColor = 'var(--magenta)', 110);
+    setTimeout(() => card.style.borderColor = '', 160);
+  });
+});
+
+/* Typing effect */
+const h1 = document.getElementById('galleryTitle');
+if (h1) {
+  const txt = 'VISUAL_ARCHIVE';
+  let i = 0;
+  const type = () => { if (i < txt.length) { h1.textContent += txt[i++]; setTimeout(type, 80); } };
+  type();
+}
+</script>
 </body>
 </html>

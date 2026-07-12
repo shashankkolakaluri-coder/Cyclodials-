@@ -3,118 +3,328 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- TODO: Update page title if team number or season name changes -->
-  <title>Cyclodials | FTC Robotics</title>
+  <title>CYCLODIALS | FTC Team #35788 — Kinetic Cyber-Systems</title>
   <link rel="stylesheet" href="styles.css" />
+  <!-- Three.js for animated gear background -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
+  <style>
+    #three-bg {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: -1;
+      background: #000;
+    }
+  </style>
 </head>
 <body>
 
+<!-- Animated Gear Background -->
+<div id="three-bg"></div>
+
+<!-- Cyber grid & scanline overlays -->
+<div class="cyber-grid-bg"></div>
+<div class="scanline-overlay"></div>
+
+<div class="page-shell">
+
   <!-- ── Navigation ─────────────────────────────────────────── -->
-  <nav>
-    <a href="index.html" class="nav-logo">CYCLODIALS</a>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="team.html">Team</a></li>
-      <li><a href="robot.html">Robot</a></li><li><a href="gallery.html">Gallery</a></li>
-      <li><a href="outreach.html">Outreach</a></li><li><a href="contact.html">Contact</a></li>
-    </ul>
+  <nav class="topnav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-cyclo">CYCLO</span><span class="logo-dials">DIALS</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="robot.html">Robot</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="outreach.html">Outreach</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="contact.html" class="nav-cta">Join Us</a>
+    </div>
   </nav>
 
   <!-- ── Hero ───────────────────────────────────────────────── -->
-  <header class="hero">
-    <div class="hero-paths">
-      <svg viewBox="0 0 696 316" preserveAspectRatio="xMidYMid meet" style="width:85%;height:85%;">
-        <path d="M-100 -190 L800 230" stroke-width="1" stroke-opacity="0.3"/>
-        <path d="M-100 -155 L800 265" stroke-width="1.1" stroke-opacity="0.33"/>
-        <path d="M-100 -120 L800 300" stroke-width="1.2" stroke-opacity="0.36"/>
-        <path d="M-100 -85 L800 335" stroke-width="1.3" stroke-opacity="0.4"/>
-        <path d="M-100 -50 L800 370" stroke-width="1.4" stroke-opacity="0.44"/>
-        <path d="M-100 -15 L800 405" stroke-width="1.3" stroke-opacity="0.4"/>
-        <path d="M-100 20 L800 440" stroke-width="1.2" stroke-opacity="0.36"/>
-        <path d="M-100 55 L800 475" stroke-width="1.1" stroke-opacity="0.33"/>
-        <path d="M-100 90 L800 510" stroke-width="1" stroke-opacity="0.3"/>
-      </svg>
-    </div>
-    <div class="hero-inner">
-      <p class="hero-eyebrow">FTC Team <!-- TODO: Insert team number, e.g. #12345 --></p>
-      <h1 class="hero-title">
+  <div class="hero">
+    <div class="hero-panel glitch-border-static">
+      <div class="hero-system-id">[ SYSTEM_INIT_V.35788 ]</div>
+      <h1 class="hero-title glow-cyan">
         CYCLO
-        <span class="accent">DIALS</span>
+        <span class="dials glow-mag">DIALS</span>
       </h1>
-      <!-- TODO: Replace tagline with your team's actual tagline/motto -->
-      <p class="hero-tagline">
-        Engineering tomorrow's solutions — one gear, one line of code, one match at a time.
+      <p class="hero-sub">
+        Innovating at the intersection of kinetic engineering and algorithmic precision.
       </p>
-      <div class="hero-cta">
-        <a href="robot.html" class="btn">See Our Robot</a>
-        <a href="team.html" class="btn btn-ghost">Meet the Team</a>
+      <div class="hero-btns">
+        <a href="robot.html" class="btn-magenta">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+          2024 Season Specs
+        </a>
+        <a href="#about" class="btn-cyan">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+          Our Mission
+        </a>
       </div>
     </div>
-  </header>
+  </div>
 
-  <!-- ── Stats Bar ──────────────────────────────────────────── -->
-  <!-- TODO: Replace all stat values with real data once available -->
-  </section>
+  <!-- ── About / Mission ────────────────────────────────────── -->
+  <section class="section" id="about">
+    <div style="display:grid; grid-template-columns: 7fr 5fr; gap:24px; align-items:start;">
 
-  <!-- ── About ──────────────────────────────────────────── -->
-  <section>
-    <p class="section-label">About Us</p>
-    <h2>Who Are The <span class="accent">Cyclodials?</span></h2>
-    <div class="divider"></div>
-    <div class="mission-grid">
-      <div class="mission-text">
-        <p>Cyclodials is a FIRST Tech Challenge (FTC) robotics team passionate about engineering, programming, and community outreach. We design, build, and program competitive robots to tackle seasonal challenges — and we learn something new at every step of the process.</p>
-        <p>Based out of Irvington High School, our team brings together students with diverse skills: mechanical design, software development, CAD, and strategy. Together, we build more than robots — we build problem-solvers.</p>
-        <p>We compete in the <span class="accent">INTO THE DEEP</span> season and are driven by FIRST's mission to inspire young people to become science and technology leaders.</p>
+      <div>
+        <div class="section-tag" style="color:var(--magenta);">// CORE_MISSION</div>
+        <div style="border:1px solid var(--cyan-border); background:rgba(10,11,30,0.6); backdrop-filter:blur(8px); padding:24px; margin-bottom:24px;" class="glitch-border-static">
+          <h3 class="display-md glow-cyan" style="color:var(--cyan); margin-bottom:16px;">Engineering Human Potential</h3>
+          <p style="color:var(--text); line-height:1.7; margin-bottom:12px; font-size:15px;">
+            The Cyclodials mission is to empower the next generation of engineers through the rigorous pursuit of mechanical excellence and collaborative innovation. We don't just build robots — we build the architectural foundation for future technological leadership.
+          </p>
+          <p style="color:var(--text-muted); font-size:14px; line-height:1.6;">
+            Based at Irvington High School, our team specializes in high-torque cycloidal drive systems and modular software frameworks that push the boundaries of the FIRST Tech Challenge.
+          </p>
+        </div>
+
+        <!-- Core values 2×2 -->
+        <div class="value-grid">
+          <div class="value-card">
+            <div class="value-card-tag">// KINETIC EFFICIENCY</div>
+            <p>Every rotation counts. We optimize for maximum torque with minimal mechanical loss using custom cycloidal geometry.</p>
+          </div>
+          <div class="value-card mag">
+            <div class="value-card-tag" style="color:var(--magenta);">// ALGORITHMIC AGILITY</div>
+            <p>Implementing advanced computer vision and PID control systems for autonomous precision during match play.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-card-tag">// RADICAL ITERATION</div>
+            <p>Rapid prototyping via additive manufacturing allows us to test and deploy hardware updates in record time.</p>
+          </div>
+          <div class="value-card mag">
+            <div class="value-card-tag" style="color:var(--magenta);">// OPEN SYSTEMS</div>
+            <p>Mentoring others by open-sourcing our design documentation and fostering a transparent STEM ecosystem.</p>
+          </div>
+        </div>
       </div>
-      <div class="mission-values">
-        <div class="value-card"><h4>// Innovation</h4><p>We don't just follow the playbook — we rewrite it. Creative engineering is at the heart of everything we build.</p></div>
-        <div class="value-card"><h4>// Gracious Professionalism</h4><p>We compete hard and support harder. Win or lose, we lift up every team we meet on the field.</p></div>
-        <div class="value-card"><h4>// Continuous Improvement</h4><p>Every match, every iteration, every line of code is a chance to be better than yesterday's version of ourselves.</p></div>
-        <div class="value-card"><h4>// Community</h4><p>We host workshops, mentor younger teams, and share what we know — because a rising tide lifts all robots.</p></div>
+
+      <!-- Team image -->
+      <div style="position:relative; min-height:400px; border:1px solid var(--cyan); background:rgba(10,11,30,0.2); overflow:hidden;" class="glitch-border-static">
+        <!-- TODO: Replace with a real team photo -->
+        <div style="width:100%; height:100%; min-height:460px; background:linear-gradient(135deg, rgba(0,241,253,0.05), rgba(216,0,216,0.05)); display:flex; align-items:center; justify-content:center; flex-direction:column; gap:16px;">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="rgba(0,241,253,0.2)"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          <span class="label-caps" style="color:rgba(0,241,253,0.3);">// TEAM PHOTO — TODO</span>
+        </div>
+        <div style="position:absolute; bottom:12px; right:12px; background:var(--magenta); color:#000; padding:4px 10px; font-family:var(--font-mono); font-size:9px; font-weight:700; letter-spacing:0.1em;">KINETIC_ENG_DIV.01</div>
       </div>
     </div>
   </section>
 
-  <!-- ── Why Cyclodials ───────────────────────────────────── -->
-  <section>
-    <p class="section-label">The Name</p>
-    <h2>Why <span class="accent">Cyclodials?</span></h2>
-    <div class="divider"></div>
-    <p style="color: var(--text); max-width: 640px; margin-bottom: 1rem;">
-      Our name comes from the <span class="accent">cycloidal gear</span> — a gear designed for smooth, continuous transfer of motion, where every tooth engages perfectly with the next to keep the whole system turning.
-    </p>
-    <p style="color: var(--text); max-width: 640px; margin-bottom: 1rem;">
-      That is exactly how our team works. No single member drives everything — each of us pushes, lifts, and carries the work forward, meshing together like gears in a drivetrain. Software depends on build, build depends on CAD, and everyone depends on each other. When one gear turns, we all turn.
-    </p>
-    <p style="color: var(--text); max-width: 640px;">
-      Teamwork is not just something we practice — it is the mechanism we are named after.
-    </p>
+  <!-- ── Season Section ─────────────────────────────────────── -->
+  <section style="padding:80px 0; background:rgba(10,11,30,0.9); border-top:1px solid rgba(0,241,253,0.15); border-bottom:1px solid rgba(0,241,253,0.15); backdrop-filter:blur(12px); position:relative; overflow:hidden;">
+    <!-- Diagonal hatch pattern -->
+    <div style="position:absolute; top:0; right:0; width:50%; height:100%; opacity:0.08; pointer-events:none; background-image: repeating-linear-gradient(45deg, #00f1fd 0, #00f1fd 1px, transparent 0, transparent 50%); background-size: 12px 12px;"></div>
+
+    <div class="container" style="display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; position:relative; z-index:1;">
+      <div>
+        <div class="section-tag" style="color:var(--magenta); margin-bottom:8px;">// CURRENT_OPERATION</div>
+        <h2 class="display-xl glow-cyan" style="color:#fff; margin-bottom:16px;">INTO THE<br><span style="color:var(--magenta);" class="glow-mag">DEEP</span></h2>
+        <div style="width:96px; height:4px; background:var(--magenta); box-shadow:0 0 10px var(--magenta); margin-bottom:24px;"></div>
+        <p style="color:var(--text-muted); font-size:17px; line-height:1.7; max-width:480px; margin-bottom:16px;">
+          The 2024–2025 FTC season presents our greatest challenge yet: navigating the complex underwater-themed arena.
+        </p>
+        <p style="color:var(--cyan); font-weight:700; font-style:italic; font-size:15px; margin-bottom:24px;" class="glow-cyan">
+          "Mastering the abyss through mechanical innovation."
+        </p>
+        <!-- TODO: Replace with your robot's actual name and description -->
+        <p style="color:rgba(226,226,226,0.7); font-size:13px; line-height:1.6; margin-bottom:32px;">
+          Our robot, <em>UNIT-?</em>, is engineered for deep-sea maneuvering simulation, featuring high-torque intake systems and a specialized vertical lift designed to secure samples from the arena's trench.
+        </p>
+
+        <!-- Quick stats -->
+        <div class="stat-group">
+          <div>
+            <!-- TODO: Replace with real stats -->
+            <div class="stat-value" style="color:var(--magenta);">??%</div>
+            <div class="stat-label">System Ready</div>
+          </div>
+          <div class="stat-divider"></div>
+          <div>
+            <div class="stat-value" style="color:var(--cyan);">?.?s</div>
+            <div class="stat-label">Cycle Time</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Season icon grid -->
+      <div class="season-icon-grid">
+        <div class="season-icon cyan">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#00f1fd" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span class="season-icon-label">Fluid Dynamics</span>
+        </div>
+        <div class="season-icon mag">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#d800d8" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          <span class="season-icon-label">Sample Capture</span>
+        </div>
+        <div class="season-icon mag">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#d800d8" stroke-width="1.5"><polyline points="18 15 12 9 6 15"/></svg>
+          <span class="season-icon-label">Submersible Lift</span>
+        </div>
+        <div class="season-icon cyan">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#00f1fd" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span class="season-icon-label">Sonar Vision</span>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <!-- ── Sponsors ─────────────────────────────────────────── -->
-  <section>
-    <p class="section-label">Sponsors</p>
-    <h2>Support the <span class="accent">Team</span></h2>
-    <div class="divider"></div>
-    <p style="color: var(--text-muted); max-width: 560px; margin-bottom: 1.5rem;">
-      Cyclodials is a student-run FTC team, and sponsorships directly fund our robot parts, competition registration, and outreach events. Want to be one of our first sponsors? We would love to hear from you.
-    </p>
-    <a href="mailto:cyclodials@gmail.com" class="btn">Become a Sponsor</a>
+  <!-- ── Team History ────────────────────────────────────────── -->
+  <section class="section" id="history">
+    <div style="text-align:center; margin-bottom:48px;">
+      <div class="section-tag" style="color:var(--cyan); margin-bottom:8px;">// LOG_FILES_ARCHIVE</div>
+      <h2 class="display-lg glow-cyan" style="color:#fff;">Team Lineage &amp; Evolution</h2>
+    </div>
+
+    <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:24px;">
+      <!-- TODO: Replace with real history entries -->
+      <div class="year-card">
+        <div class="year-card-num">2022</div>
+        <h4 class="display-md" style="color:var(--cyan); margin-bottom:12px; font-size:18px;">The Genesis</h4>
+        <p style="font-size:13px; color:var(--text-muted); line-height:1.6; position:relative; z-index:1;">Founded as a rookie team under the Kinetic Cyber-Systems banner. Focused on mastering drivetrain fundamentals and basic game mechanics. Secured 'Rookie Inspiration' award in our debut regional.</p>
+      </div>
+      <div class="year-card active">
+        <div class="year-card-num">2023</div>
+        <h4 class="display-md" style="color:var(--magenta); margin-bottom:12px; font-size:18px;">CenterStage Shift</h4>
+        <p style="font-size:13px; color:var(--text-muted); line-height:1.6; position:relative; z-index:1;">Introduced our first custom cycloidal drivetrain. Optimized for rapid intake and pixel placement. Finalist Alliance member at the State Championship and recipient of the 'Design Award'.</p>
+      </div>
+      <div class="year-card">
+        <div class="year-card-num">2024</div>
+        <h4 class="display-md" style="color:var(--cyan); margin-bottom:12px; font-size:18px;">Deep Sea Tech</h4>
+        <p style="font-size:13px; color:var(--text-muted); line-height:1.6; position:relative; z-index:1;">Current deployment. Developing advanced suspension systems for arena obstacles and high-precision vertical expansion modules. Integrating AI for real-time field navigation.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Sponsorship CTA ─────────────────────────────────────── -->
+  <section class="section" id="support" style="text-align:center;">
+    <div style="max-width:640px; margin:0 auto; background:rgba(10,11,30,0.4); backdrop-filter:blur(8px); padding:48px;" class="glitch-border-static">
+      <div class="code-text" style="color:var(--cyan); margin-bottom:16px;">04 // SUPPORT THE TEAM</div>
+      <h2 class="display-lg" style="color:#fff; margin-bottom:20px;">Fuel the Future of Engineering</h2>
+      <p style="color:var(--text-muted); margin-bottom:32px; font-size:14px; line-height:1.7;">
+        Sponsoring the Cyclodials provides our team with the resources needed for high-quality components, travel for competitions, and community outreach events. Partner with us and see your brand represented on our 2024–2025 "Into the Deep" chassis.
+      </p>
+      <a href="contact.html" class="btn-cyan" style="display:inline-flex;">Become a Sponsor</a>
+
+      <!-- TODO: Replace with real sponsor names/logos -->
+      <div style="display:flex; justify-content:center; gap:32px; margin-top:32px; opacity:0.35;">
+        <span class="code-text" style="color:var(--magenta);">[ KINETIC_PARTNER ]</span>
+        <span class="code-text" style="color:var(--cyan);">[ CYBER_SYSTEM_PRO ]</span>
+        <span class="code-text" style="color:var(--magenta);">[ NEON_CORE_SUPPORTER ]</span>
+      </div>
+    </div>
   </section>
 
   <!-- ── Footer ─────────────────────────────────────────────── -->
   <footer>
-    <p><span>CYCLODIALS</span> &mdash; FTC Team #35788 &mdash; &copy; 2025</p>
-        <div style="margin-top:1rem;display:flex;align-items:center;gap:1.5rem;justify-content:center;flex-wrap:wrap;">
-      <a href="https://www.instagram.com/cycloidalsftc/" class="btn" style="font-size:0.68rem;padding:0.5rem 1.25rem;">Instagram</a>
-      <p style="color:var(--text-muted);font-size:0.75rem;letter-spacing:0.05em;margin:0;">Daily build sessions, robot progress, and behind-the-scenes from the season.</p>
+    <div class="footer-inner">
+      <div class="footer-brand">© 2025 FTC TEAM <span>#35788</span> — <span>CYCLODIALS</span>. KINETIC ENGINEERING DIVISION.</div>
+      <nav class="footer-links">
+        <a href="#">GitHub</a>
+        <a href="contact.html">Sponsorships</a>
+        <a href="#">Press Kit</a>
+      </nav>
     </div>
   </footer>
 
-  <script src="nav.js"></script>
+</div><!-- /page-shell -->
+
+<script src="etheral-shadow.js"></script>
+<script src="nav.js"></script>
+<script>
+/* Three.js Interactive Neon Gear Background */
+(function () {
+  const container = document.getElementById('three-bg');
+  if (!container || typeof THREE === 'undefined') return;
+
+  const scene    = new THREE.Scene();
+  const camera   = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+  const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  container.appendChild(renderer.domElement);
+
+  scene.add(new THREE.AmbientLight(0x0a0b1e, 0.8));
+  const cyanLight = new THREE.PointLight(0x00f1fd, 2, 50);
+  cyanLight.position.set(10, 10, 10);
+  scene.add(cyanLight);
+  const magLight = new THREE.PointLight(0xd800d8, 1, 50);
+  magLight.position.set(-10, -10, 10);
+  scene.add(magLight);
+
+  function createGear(radius, teeth, color) {
+    const g = new THREE.Group();
+    const mat = new THREE.MeshPhongMaterial({
+      color, emissive: color, emissiveIntensity: 0.4,
+      transparent: true, opacity: 0.35,
+      wireframe: Math.random() > 0.5
+    });
+    const core = new THREE.Mesh(new THREE.CylinderGeometry(radius * 0.8, radius * 0.8, 0.15, 32), mat);
+    core.rotation.x = Math.PI / 2;
+    g.add(core);
+
+    for (let i = 0; i < teeth; i++) {
+      const a = (i / teeth) * Math.PI * 2;
+      const tooth = new THREE.Mesh(new THREE.BoxGeometry(radius * 0.3, 0.15, radius * 0.2), mat);
+      tooth.position.set(Math.cos(a) * radius, 0, Math.sin(a) * radius);
+      tooth.rotation.y = -a; tooth.rotation.x = Math.PI / 2;
+      g.add(tooth);
+    }
+
+    const ring = new THREE.Mesh(new THREE.TorusGeometry(radius * 0.4, 0.02, 16, 100),
+      new THREE.MeshBasicMaterial({ color: 0x00f1fd }));
+    ring.rotation.x = Math.PI / 2;
+    g.add(ring);
+    return g;
+  }
+
+  const COLORS = [0x00f1fd, 0xd800d8, 0x39ff14, 0xeeeeee];
+  const gears = [];
+  for (let i = 0; i < 14; i++) {
+    const r = 0.5 + Math.random() * 2;
+    const gear = createGear(r, Math.floor(r * 10), COLORS[Math.floor(Math.random() * COLORS.length)]);
+    gear.position.set((Math.random() - 0.5) * 25, (Math.random() - 0.5) * 15, -15 - Math.random() * 10);
+    gear.rotation.set(Math.random(), Math.random(), Math.random());
+    gear.userData.speed = (Math.random() - 0.5) * 0.015;
+    gears.push(gear);
+    scene.add(gear);
+  }
+
+  camera.position.z = 8;
+  let mx = 0, my = 0;
+  window.addEventListener('mousemove', e => {
+    mx = (e.clientX / window.innerWidth) * 2 - 1;
+    my = -(e.clientY / window.innerHeight) * 2 + 1;
+  });
+  window.addEventListener('resize', () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  });
+
+  (function animate() {
+    requestAnimationFrame(animate);
+    gears.forEach(g => {
+      g.rotation.z += g.userData.speed;
+      g.position.x += (mx * 0.8 - g.position.x) * 0.0005;
+      g.position.y += (my * 0.8 - g.position.y) * 0.0005;
+    });
+    scene.rotation.y += (mx * 0.05 - scene.rotation.y) * 0.03;
+    scene.rotation.x += (-my * 0.05 - scene.rotation.x) * 0.03;
+    renderer.render(scene, camera);
+  })();
+})();
+</script>
 </body>
 </html>
