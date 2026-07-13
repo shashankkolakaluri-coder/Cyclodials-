@@ -212,33 +212,33 @@
                 <button type="button" class="subject-chip" data-val="recruitment">Recruitment</button>
                 <button type="button" class="subject-chip" data-val="other">Other</button>
               </div>
-              <input type="hidden" id="subjectVal" value="sponsorship" />
+              <input type="hidden" id="subjectVal" name="subject_node" value="sponsorship" />
             </div>
 
             <div class="form-row" style="margin-top:24px;">
               <div class="form-group">
                 <label class="form-label" for="fname">FIRST_NAME</label>
-                <input class="form-input" id="fname" type="text" placeholder="JOHN" required />
+                <input class="form-input" id="fname" name="first_name" type="text" placeholder="JOHN" required />
               </div>
               <div class="form-group">
                 <label class="form-label" for="lname">LAST_NAME</label>
-                <input class="form-input" id="lname" type="text" placeholder="NEXUS" />
+                <input class="form-input" id="lname" name="last_name" type="text" placeholder="NEXUS" />
               </div>
             </div>
 
             <div class="form-group">
               <label class="form-label" for="email">EMAIL_ADDRESS</label>
-              <input class="form-input" id="email" type="email" placeholder="you@domain.com" required />
+              <input class="form-input" id="email" name="email" type="email" placeholder="you@domain.com" required />
             </div>
 
             <div class="form-group">
               <label class="form-label" for="org">ORGANIZATION // OPTIONAL</label>
-              <input class="form-input" id="org" type="text" placeholder="Your Company / School" />
+              <input class="form-input" id="org" name="organization" type="text" placeholder="Your Company / School" />
             </div>
 
             <div class="form-group">
               <label class="form-label" for="message">MESSAGE_PAYLOAD</label>
-              <textarea class="form-textarea" id="message" rows="6" placeholder="Transmit your message here..." required></textarea>
+              <textarea class="form-textarea" id="message" name="message" rows="6" placeholder="Transmit your message here..." required></textarea>
             </div>
 
             <!-- Honeypot -->
@@ -387,9 +387,10 @@
   updateLog();
   setInterval(updateLog, 30000);
 
-  /* Form submit — show success terminal, hide form */
+  /* Form submit — send via FormSubmit AJAX, show success terminal on real success */
   document.getElementById('contactForm').addEventListener('submit', function(e){
     e.preventDefault();
+    const form = this;
     const fname = document.getElementById('fname').value.trim();
     const email = document.getElementById('email').value.trim();
     const msg   = document.getElementById('message').value.trim();
@@ -401,8 +402,28 @@
       return;
     }
 
-    this.style.display = 'none';
-    document.getElementById('formSuccess').style.display = 'block';
+    const submitBtn = form.querySelector('button[type="submit"], input[type="submit"]');
+    if (submitBtn) submitBtn.disabled = true;
+
+    const formData = new FormData(form);
+
+    fetch('https://formsubmit.co/ajax/cyclodials@gmail.com', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: formData
+    })
+    .then(response => {
+      if (!response.ok) throw new Error('Network response was not ok');
+      return response.json();
+    })
+    .then(() => {
+      form.style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+    })
+    .catch(() => {
+      if (submitBtn) submitBtn.disabled = false;
+      alert('Transmission failed — please check your connection and try again, or email us directly at cyclodials@gmail.com.');
+    });
   });
 </script>
 </body>
