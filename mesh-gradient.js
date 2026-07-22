@@ -2,7 +2,7 @@
  * mesh-gradient.js
  * Vanilla WebGL port of @paper-design/shaders-react <MeshGradient />.
  * Creates a fullscreen animated gradient mesh on a <canvas> element.
- * Colors adapted to the Cyclodials palette (black → navy → cyan glow).
+ * Colors adapted to the Cycloidals palette (black → navy → cyan glow).
  *
  * Usage:
  *   const mg = MeshGradient({ container, colors, speed });

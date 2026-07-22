@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CYCLODIALS | Robot Specs</title>
+  <title>CYCLOIDALS | Robot Specs</title>
   <link rel="stylesheet" href="styles.css" />
   <style>
     @keyframes blink { 50% { opacity: 0; } }
@@ -37,7 +37,7 @@
   <nav class="topnav">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">
-        <span class="logo-cyclo">CYCLO</span><span class="logo-dials">DIALS</span>
+        <span class="logo-cyclo">CYCLO</span><span class="logo-dials">IDALS</span>
       </a>
       <button class="nav-toggle" id="navToggle" aria-label="Menu">
         <span></span><span></span><span></span>
@@ -112,9 +112,7 @@
           <!-- TODO: Update with your actual software choices -->
           <div style="background:rgba(0,0,0,0.4); padding:12px; border:1px solid var(--outline-var); margin-bottom:16px; font-family:var(--font-mono); font-size:11px; line-height:2;">
             <p style="color:#e1e0fb;">&gt; LOADED: FtcRobotController</p>
-            <p style="color:#6ff6ff;">&gt; LOCALIZATION: OTOS Sensor</p>
             <p style="color:#ffd7f5;">&gt; CV_MODE: Limelight / TensorFlow</p>
-            <p style="color:var(--text-muted);">&gt; CONTROL: FeedForward + PID <span class="blinking-cursor"></span></p>
           </div>
           <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
             <div style="border:1px solid var(--outline-var); padding:8px; text-align:center;">
@@ -174,9 +172,9 @@
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
             Manipulator Systems
           </h3>
-          <!-- TODO: Replace with real intake photo -->
-          <div style="aspect-ratio:1; background:rgba(0,0,0,0.4); border:1px solid var(--outline-var); margin-bottom:16px; display:flex; align-items:center; justify-content:center; overflow:hidden;">
-            <span class="label-caps" style="color:rgba(0,241,253,0.2); font-size:9px;">// INTAKE PHOTO — TODO</span>
+          <div style="aspect-ratio:1; border:1px solid var(--outline-var); margin-bottom:16px; overflow:hidden;">
+            <img src="assets/robot/intake-system.jpg" alt="Intake system mounted on robot chassis"
+                 style="width:100%; height:100%; object-fit:cover; display:block;" />
           </div>
           <!-- TODO: Update intake efficiency percentage -->
           <div>
@@ -185,11 +183,6 @@
               <span class="code-text" style="font-size:9px; color:var(--cyan);">??%</span>
             </div>
             <div class="progress-bar"><div class="progress-fill" style="width:90%;"></div></div>
-          </div>
-          <!-- TODO: Update with real mechanism details -->
-          <div style="margin-top:12px; display:flex; flex-direction:column; gap:4px;">
-            <p class="code-text" style="font-size:10px; color:#6ff6ff;">ACTIVE: <!-- TODO --> Dual-Action Claw</p>
-            <p class="code-text" style="font-size:10px; color:#6ff6ff;">SERVO: <!-- TODO --> Axon Mini+ Actuators</p>
           </div>
         </div>
 
@@ -274,15 +267,8 @@
         <span style="width:32px; height:1px; background:#e1e0fb;"></span>
         SYSTEMS_DIAGNOSTIC_BREAKDOWN
       </h2>
-      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px;">
+      <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:20px;">
         <!-- TODO: Replace with real system descriptions -->
-        <div style="padding:24px; border:1px solid rgba(71,70,76,0.3); background:rgba(0,0,0,0.2); transition:border-color 0.2s;" onmouseover="this.style.borderColor='rgba(0,241,253,0.5)'" onmouseout="this.style.borderColor='rgba(71,70,76,0.3)'">
-          <h4 class="code-text" style="color:#6ff6ff; margin-bottom:12px; text-transform:uppercase;">Linear Slides (X-Axis)</h4>
-          <p style="font-size:14px; color:var(--text-muted); line-height:1.6;">
-            <!-- TODO: Replace with your actual slide specs -->
-            MISUMI SAR2 series telescopic rails powered by high-speed GoBilda 5203 motors. Optimized for 40-inch extension within 1.2 seconds.
-          </p>
-        </div>
         <div style="padding:24px; border:1px solid rgba(71,70,76,0.3); background:rgba(0,0,0,0.2); transition:border-color 0.2s;" onmouseover="this.style.borderColor='rgba(0,241,253,0.5)'" onmouseout="this.style.borderColor='rgba(71,70,76,0.3)'">
           <h4 class="code-text" style="color:#6ff6ff; margin-bottom:12px; text-transform:uppercase;">Vision Pipeline</h4>
           <p style="font-size:14px; color:var(--text-muted); line-height:1.6;">
@@ -305,14 +291,14 @@
   <!-- ── Footer ─────────────────────────────────────────────── -->
   <footer>
     <div class="footer-inner">
-      <div class="footer-brand">CYCLODIALS // KINETIC ENGINEERING DIVISION</div>
+      <div class="footer-brand">CYCLOIDALS // KINETIC ENGINEERING DIVISION</div>
       <nav class="footer-links">
         <a href="#">Privacy Policy</a>
         <a href="contact.html">Sponsorships</a>
         <a href="#">Press Kit</a>
       </nav>
       <div style="font-family:var(--font-mono); font-size:9px; color:rgba(226,226,226,0.4);">
-        © 2025 FTC TEAM 35788 CYCLODIALS.<br>SOURCE: GITHUB REPOSITORY // MK I DEPLOYMENT
+        © 2025 FTC TEAM 35788 CYCLOIDALS.<br>SOURCE: GITHUB REPOSITORY // MK I DEPLOYMENT
       </div>
     </div>
   </footer>
